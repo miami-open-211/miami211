@@ -18,6 +18,5 @@ get "/org_search" do # form method=GET => /org_search?search_terms
     end
     
     @search = Ohanakapa.search("search", :keyword => params[:search_terms])
-    print @search
     erb(:show_search_results)
 end

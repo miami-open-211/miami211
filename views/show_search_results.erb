@@ -1,12 +1,17 @@
-<!doctype html>
-<html>
-	<head>
-	  <title>Search Results</title>
-	</head>
-	<body>
-		<h1>Search Results</h1>
-        <% @search.each do |result| %>
-        <p><%= result.organization.name %></p>
-        <% end %>
-</body>
-</html>
+<!-- First column -->
+<div class="col-md-3" id="search-results">
+    <h3><%= @search.length %> results</h3>
+    <% @search.each do |result| %>
+    <p><%= result.organization.name %></p>
+    <% end %>
+</div>
+
+<!-- Second column -->
+<div class="col-md-3" id="search-refine">
+    <h3>Refine by</h3>
+</div>
+
+<!-- Third column -->
+<div class="col-md-6" id="search-map">
+    Map goes here
+</div>

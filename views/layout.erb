@@ -15,45 +15,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/99f1d319de.js"></script>
 </head>
-  <body> 
-
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/">Miami 211</a>
-                </div>
-                <!-- Search form -->
-                <form action="/org_search" method="get" class="form-inline">
-        <div class="form-group">
-            <label for="home_search">I need...</label>
-            <input type="text" name="search_terms" placeholder="Enter search term(s)" class="form-control" id="home_search">
-            <button type="submit" class="btn btn-primary">Search</button>
-        </div>
-    </form>
-                
-                
-                
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#about">About</a></li>
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
-            </div>
-            <!-- /.container-fluid -->
-        </nav>
-
-        <main class="container">
+    <body> 
+        <%= erb(:_nav) %>
+        <main class="container-fluid">
             <%= yield %>
         </main>
-
-  </body>
+    </body>
 </html>
