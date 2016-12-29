@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/davidjamesknight/miami211/badges/gpa.svg)](https://codeclimate.com/github/davidjamesknight/miami211) [![Test Coverage](https://codeclimate.com/github/davidjamesknight/miami211/badges/coverage.svg)](https://codeclimate.com/github/davidjamesknight/miami211/coverage)
+
 #Miami 211 Rebuild#
 
 A Sinatra app for the [Ohana API][]
