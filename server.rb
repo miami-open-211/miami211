@@ -1,6 +1,5 @@
 system("clear")
 
-require "pry"
 require "ohanakapa"
 require "sinatra"
 require "sinatra/reloader" if development?
