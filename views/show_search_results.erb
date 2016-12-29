@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+	<head>
+	  <title>Search Results</title>
+	</head>
+	<body>
+		<h1>Search Results</h1>
+        <% @search.each do |result| %>
+        <p><%= result.organization.name %></p>
+        <% end %>
+</body>
+</html>
