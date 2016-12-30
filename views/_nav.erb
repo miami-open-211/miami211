@@ -12,14 +12,16 @@
         </div>
         
         <!-- Search form -->
-        <form action="/org_search" method="get" class="form-inline">
-            <div class="form-group">
-                <!-- <label for="home_search">I need...</label>-->
-                <input type="text" name="search_terms" placeholder="I am looking for..." class="form-control" id="home_search">
-                <button type="submit" class="btn btn-primary">Search</button>
-            </div>
-        </form>
-                 
+        <% if @hide_search != true %>
+            <form action="/org_search" method="get" class="form-inline">
+                <div class="form-group">
+                    <!-- <label for="nav_search">I need...</label>-->
+                    <input type="text" name="search_terms" placeholder="I need help with..." class="form-control" id="nav_search">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </form>
+        <% end %>        
+        
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
