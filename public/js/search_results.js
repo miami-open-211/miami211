@@ -16,7 +16,7 @@ $(document).on("ready", function(){
     
     // Add its value to refine_by (or remove if present)
     function addRefine(x){
-        if ($.inArray(x, refine_by) == -1){
+        if ($.inArray(x, refine_by) === -1){
             refine_by.push($.trim(x))
         }
         else {
@@ -31,10 +31,10 @@ $(document).on("ready", function(){
         $(".each-result").each(function(){
             let this_city = $.trim($(this).attr("data-city"))
             let this_zip = $.trim($(this).attr("data-zip"))
-            if (refine_by.length == 0){
+            if (refine_by.length === 0){
                 $(this).show()
                 count++
-            } else if (($.inArray(this_city, refine_by) == -1) && ($.inArray(this_zip, refine_by) == -1)){
+            } else if (($.inArray(this_city, refine_by) === -1) && ($.inArray(this_zip, refine_by) === -1)){
                 $(this).hide()
             } else {
                 $(this).show()
@@ -47,7 +47,7 @@ $(document).on("ready", function(){
     // Update #number-results
     function numberResults(count){
         let word = " results"
-        if (count == 1){
+        if (count === 1){
             word = " result"
         }
         $("#number-results").text(count + word)
