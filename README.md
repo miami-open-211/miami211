@@ -30,7 +30,7 @@ A Sinatra app for the [Ohana API][]
 ##API
 
 ###Endpoint
-[https://ohana-api.herokuapp.com/api/]https://ohana-api.herokuapp.com/api/
+[https://ohana-api.herokuapp.com/api/](https://ohana-api.herokuapp.com/api/)
 
 ###JSON
-[https://ohana-api.herokuapp.com/api/locations]https://ohana-api.herokuapp.com/api/locations
+[https://ohana-api.herokuapp.com/api/locations](https://ohana-api.herokuapp.com/api/locations)
