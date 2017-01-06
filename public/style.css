@@ -25,12 +25,11 @@ body
     {
     color: #212121;    
     font-family: 'Roboto', sans-serif;
-    padding-top: 5rem; /* to clear navbar */
+    padding-top: 3.375rem; /* to clear navbar */
     }
 
 main
     {
-    border-top: 1px solid #d6d7d9;
     }
 
 a
@@ -55,6 +54,7 @@ a
 .navbar
     {
     background-color: #fff;
+    border-bottom: 1px solid #d6d7d9;
     }
 
 
@@ -63,7 +63,7 @@ a
 #home-search
     {
     background-color: #f1f1f1;
-    height: 100%;
+    height: 200px;
     text-align: center
     }
 
@@ -71,8 +71,8 @@ a
     {
     left: 50%;
     position: relative;
-    top: 25%;
-    transform: translate(-50%, -25%);    
+    top: 45%;
+    transform: translate(-50%, -45%);    
     }
 
 
