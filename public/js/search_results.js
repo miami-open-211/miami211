@@ -32,8 +32,7 @@ $(document).on("ready", function(){
             let this_zip = $.trim($(this).attr("data-zip"))
             if (refine_by.length == 0){
                 $(this).show()
-            }
-            else if ($.inArray(this_city, refine_by) == -1){
+            } else if (($.inArray(this_city, refine_by) == -1) && ($.inArray(this_zip, refine_by) == -1)){
                 $(this).hide()
             } else {
                 $(this).show()

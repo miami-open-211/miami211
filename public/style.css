@@ -90,6 +90,11 @@ a
     padding: 1rem 0 0 1rem
     }
 
+.greyed-out
+    {
+    color: #aeb0b5
+    }
+
 
 /* SEARCH RESULTS --------------------- */
 
@@ -104,6 +109,13 @@ a
     padding: 1rem 0
     }
 
+/*
+.each-result:nth-child(odd)
+    {
+    background-color: #f1f1f1;
+    }
+*/
+
 .org-name
     {
     font-weight: 700
@@ -111,12 +123,13 @@ a
 
 .org-address
     {
-/*    color: #aeb0b5*/
+
     }
 
 .org-address .fa
     {
-    margin-right: .5rem
+        color: #aeb0b5;
+        margin-right: .25rem
     }
 
 .org-description

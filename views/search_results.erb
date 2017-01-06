@@ -38,13 +38,12 @@
             <% end %>
         </span>
         <div class="org-address">
-<!--            <i class="fa fa-map-marker" aria-hidden="true"></i>-->
             <%= result.address.address_1 %>, 
             <% if result.address.address_2 %>
                 <%= result.address.address_2 %>, 
             <% end %>
             <%= result.address.city %>, 
-            <%= result.address.state_province %><%= result.address.postal_code %>
+            <%= result.address.state_province %> <%= result.address.postal_code %>
         </div>
         <div class="org-description">
             <%= result.organization.description[0...139] %> ...
