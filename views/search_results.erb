@@ -29,26 +29,26 @@
 <div class="col-md-4" id="search-results">
     <h3 id="number-results"><%= @search.length %> results</h3>
     <% @search.each do |result| %>
-    <div class="each-result" data-city="<%= result.address.city %>" data-zip="<%= result.address.postal_code %>">
-        <span class="org-name">
-            <% if result.organization.website %>
-                <a href="<%= result.organization.website %>"><%= result.organization.name %></a>
-            <% else %>
-                <%= result.organization.name %>
-            <% end %>
-        </span>
-        <div class="org-address">
-            <%= result.address.address_1 %>, 
-            <% if result.address.address_2 %>
-                <%= result.address.address_2 %>, 
-            <% end %>
-            <%= result.address.city %>, 
-            <%= result.address.state_province %> <%= result.address.postal_code %>
+        <div class="each-result" data-city="<%= result.address.city %>" data-zip="<%= result.address.postal_code %>" data-latitude="<%= result.latitude %>" data-longitude="<%= result.longitude %>">
+            <span class="org-name">
+                <% if result.organization.website %>
+                    <a href="<%= result.organization.website %>"><%= result.organization.name %></a>
+                <% else %>
+                    <%= result.organization.name %>
+                <% end %>
+            </span>
+            <div class="org-address">
+                <%= result.address.address_1 %>, 
+                <% if result.address.address_2 %>
+                    <%= result.address.address_2 %>, 
+                <% end %>
+                <%= result.address.city %>, 
+                <%= result.address.state_province %> <%= result.address.postal_code %>
+            </div>
+            <div class="org-description">
+                <%= result.organization.description[0...139] %> ...
+            </div>   
         </div>
-        <div class="org-description">
-            <%= result.organization.description[0...139] %> ...
-        </div>   
-    </div>
     <% end %>
 </div>
 
