@@ -27,25 +27,33 @@ $(document).on("ready", function(){
     
     // Hide/show .search-results according to refine_by contents
     function showRefined(){
-        $(".each-result").each(function(count){
+        let count = 0
+        $(".each-result").each(function(){
             let this_city = $.trim($(this).attr("data-city"))
             let this_zip = $.trim($(this).attr("data-zip"))
             if (refine_by.length == 0){
                 $(this).show()
+                count++
             } else if (($.inArray(this_city, refine_by) == -1) && ($.inArray(this_zip, refine_by) == -1)){
                 $(this).hide()
             } else {
                 $(this).show()
+                count++
             }
+            numberResults(count)
         })
+    }
+    
+    // Update #number-results
+    function numberResults(count){
+        let word = " results"
+        if (count == 1){
+            word = " result"
+        }
+        $("#number-results").text(count + word)
     }
     
     resetBoxes()
 })
-
-/* When a box is checked:
-Add its value to an array 
-Loop through array
-*/ 
 
 

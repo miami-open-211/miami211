@@ -27,7 +27,7 @@
 
 <!-- Second column -->
 <div class="col-md-4" id="search-results">
-    <h3><%= @search.length %> results</h3>
+    <h3 id="number-results"><%= @search.length %> results</h3>
     <% @search.each do |result| %>
     <div class="each-result" data-city="<%= result.address.city %>" data-zip="<%= result.address.postal_code %>">
         <span class="org-name">
