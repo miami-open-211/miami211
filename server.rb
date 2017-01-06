@@ -8,7 +8,7 @@ require "sinatra/reloader" if development?
 
 get "/" do
     @hide_search = true
-    erb(:search)
+    erb(:home)
 end
 
 get "/org_search" do # form method=GET => /org_search?search_terms
@@ -46,6 +46,6 @@ get "/org_search" do # form method=GET => /org_search?search_terms
     end   
     get_refine_by(@search)
     
-    erb(:show_search_results)
+    erb(:search_results)
     
 end
