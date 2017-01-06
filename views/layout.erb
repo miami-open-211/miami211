@@ -16,10 +16,13 @@
     <script src="https://use.fontawesome.com/99f1d319de.js"></script>
     <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
 </head>
-<body> 
+<body class="container-fluid"> 
     <%= erb(:_nav) %>
-    <main class="container-fluid">
+    <main>
         <%= yield %>
     </main>
+    <footer>
+        <%= erb(:_footer) %>
+    </footer>
 </body>
 </html>

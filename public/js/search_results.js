@@ -55,5 +55,3 @@ $(document).on("ready", function(){
     
     resetBoxes()
 })
-
-
