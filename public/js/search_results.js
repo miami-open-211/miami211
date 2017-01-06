@@ -28,8 +28,8 @@ $(document).on("ready", function(){
     // Hide/show .search-results according to refine_by contents
     function showRefined(){
         $(".each-result").each(function(count){
-            let this_city = $.trim($(this).find(".org-city").text())
-            let this_zip = $.trim($(this).find(".org-zip").text())
+            let this_city = $.trim($(this).attr("data-city"))
+            let this_zip = $.trim($(this).attr("data-zip"))
             if (refine_by.length == 0){
                 $(this).show()
             }

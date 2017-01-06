@@ -29,7 +29,7 @@
 <div class="col-md-4" id="search-results">
     <h3><%= @search.length %> results</h3>
     <% @search.each do |result| %>
-    <div class="each-result">
+    <div class="each-result" data-city="<%= result.address.city %>" data-zip="<%= result.address.postal_code %>">
         <span class="org-name">
             <% if result.organization.website %>
                 <a href="<%= result.organization.website %>"><%= result.organization.name %></a>
@@ -38,13 +38,13 @@
             <% end %>
         </span>
         <div class="org-address">
-            <i class="fa fa-map-marker" aria-hidden="true"></i>
+<!--            <i class="fa fa-map-marker" aria-hidden="true"></i>-->
             <%= result.address.address_1 %>, 
             <% if result.address.address_2 %>
                 <%= result.address.address_2 %>, 
             <% end %>
-            <span class="org-city"><%= result.address.city %></span>, 
-            <%= result.address.state_province %> <span class="org-zip"><%= result.address.postal_code %></span>
+            <%= result.address.city %>, 
+            <%= result.address.state_province %><%= result.address.postal_code %>
         </div>
         <div class="org-description">
             <%= result.organization.description[0...139] %> ...
