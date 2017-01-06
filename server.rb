@@ -46,6 +46,7 @@ get "/org_search" do # form method=GET => /org_search?search_terms
     end   
     get_refine_by(@search)
     
+    @scripts = ["/js/map.js", "/js/search_results.js"]
     erb(:search_results)
     
 end

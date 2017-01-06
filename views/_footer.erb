@@ -1,0 +1,5 @@
+<% if @scripts %>
+    <% @scripts.each do |js| %>
+        <script src=<%= js %>></script>
+    <% end %>
+<% end %>
