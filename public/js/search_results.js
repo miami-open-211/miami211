@@ -40,8 +40,8 @@ $(document).on("ready", function(){
                 $(this).show()
                 count++
             }
-            numberResults(count)
         })
+        numberResults(count)
     }
     
     // Update #number-results
