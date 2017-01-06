@@ -32,6 +32,17 @@ get "/org_search" do # form method=GET => /org_search?search_terms
         "city" => []
         }
     
+    def remove_escape_chars(search)
+        search.each do |org|
+            org.organization.description.gsub!("\\n*", "<br/>")
+            org.organization.description.gsub!("\\n", "<p/>")
+            org.organization.description.gsub!("\\r", "")
+            org.organization.description.gsub!("###MON###", "")
+            org.organization.description.gsub!("###COL###","")
+        end
+    end
+    remove_escape_chars(@search)
+    
     def get_refine_by(search)
         search.each do |org|
             if @refine_by["zip"].include?(org.address.postal_code) == false
@@ -46,7 +57,7 @@ get "/org_search" do # form method=GET => /org_search?search_terms
     end   
     get_refine_by(@search)
     
-    @scripts = ["/js/map.js", "/js/search_results.js"]
+    @scripts = ["map.js", "search_results.js"]
     erb(:search_results)
     
 end
