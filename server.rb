@@ -45,7 +45,8 @@ get "/org_search" do # GET: /org_search?search_terms
             org.organization.description.gsub!("\\n", "<p/>")
             org.organization.description.gsub!("\\r", "")
             org.organization.description.gsub!("###MON###", "")
-            org.organization.description.gsub!("###COL###","")
+            org.organization.description.gsub!("###COL###", "")
+            org.organization.description.gsub!("##", "")
         end
     end
     
