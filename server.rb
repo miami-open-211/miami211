@@ -13,11 +13,10 @@ end
 
 
 # SEARCH RESULTS ================================
-# /org_search?search_terms
 
-get "/org_search" do 
+get "/org_search" do # GET: /org_search?search_terms
     
-    # Ohanakapa gem handles API call
+    # Set up Ohanakapa gem to handle API call
     Ohanakapa.configure do |config|
         # DEVELOPMENT
         config.api_token = "7a7031966c424391bbab9900fcf3fa0a" 
@@ -28,6 +27,7 @@ get "/org_search" do
         # config.api_endpoint = ENV['OHANA_API_ENDPOINT']
     end
     
+    # Run a keyword search and put the results in an array named @search, which we will later send to the view
     @search = Ohanakapa.search("search", :keyword => params[:search_terms])
     
     @search.sort_by! do |org| # Alphabetize results
@@ -37,7 +37,7 @@ get "/org_search" do
         "zip" => [],
         "city" => []
         }
-    @scripts = ["map.js", "search_results.js"] # All ./public/js files running on this page
+    @scripts = ["map.js", "search_results.js"] # List all JS files to load on this page (stored in ./public/js/)
     
     def remove_escape_chars(search)
         search.each do |org|
@@ -48,9 +48,8 @@ get "/org_search" do
             org.organization.description.gsub!("###COL###","")
         end
     end
-    remove_escape_chars(@search)
     
-    # Extract cities & ZIP codes from results for 'Refine by' column
+    # Get cities & ZIP codes from @search for 'Refine by' column
     def get_refine_by(search)
         search.each do |org|
             if @refine_by["zip"].include?(org.address.postal_code) == false
@@ -62,10 +61,11 @@ get "/org_search" do
         end
         @refine_by["zip"].sort!
         @refine_by["city"].sort!    
-    end   
+    end  
+    
+    remove_escape_chars(@search)
     get_refine_by(@search)
     
-    # Render "Search results" page
-    erb(:search_results)
+    erb(:search_results) # Render ./views/search_results
     
 end
