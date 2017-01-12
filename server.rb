@@ -4,15 +4,20 @@ require "ohanakapa"
 require "sinatra"
 require "sinatra/reloader" if development?
 
-# ===========================
+# HOME ==========================================
 
 get "/" do
-    @hide_search = true
+    @hide_search = true # Hide search field in navbar
     erb(:home)
 end
 
-get "/org_search" do # form method=GET => /org_search?search_terms
+
+# SEARCH RESULTS ================================
+# /org_search?search_terms
+
+get "/org_search" do 
     
+    # Ohanakapa gem handles API call
     Ohanakapa.configure do |config|
         # DEVELOPMENT
         config.api_token = "7a7031966c424391bbab9900fcf3fa0a" 
@@ -24,13 +29,15 @@ get "/org_search" do # form method=GET => /org_search?search_terms
     end
     
     @search = Ohanakapa.search("search", :keyword => params[:search_terms])
-    @search.sort_by! do |org|
+    
+    @search.sort_by! do |org| # Alphabetize results
         org.organization.name
     end
     @refine_by = {
         "zip" => [],
         "city" => []
         }
+    @scripts = ["map.js", "search_results.js"] # All ./public/js files running on this page
     
     def remove_escape_chars(search)
         search.each do |org|
@@ -43,6 +50,7 @@ get "/org_search" do # form method=GET => /org_search?search_terms
     end
     remove_escape_chars(@search)
     
+    # Extract cities & ZIP codes from results for 'Refine by' column
     def get_refine_by(search)
         search.each do |org|
             if @refine_by["zip"].include?(org.address.postal_code) == false
@@ -57,7 +65,7 @@ get "/org_search" do # form method=GET => /org_search?search_terms
     end   
     get_refine_by(@search)
     
-    @scripts = ["map.js", "search_results.js"]
+    # Render "Search results" page
     erb(:search_results)
     
 end
