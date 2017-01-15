@@ -17,4 +17,16 @@ $(document).on("ready", function(){
 	    maxZoom: 18
 	}).addTo(mymap);
 
+
+
+	$(document).on("marker:show", function (event){
+		var marker = L.marker([
+			$(event.target).attr("data-latitude"),
+			$(event.target).attr("data-longitude")]);
+		mymap.addLayer(marker);
+		marker.bindPopup($(event.target).find('.org-name').text()).openPopup();
+	});
+
+
 });
+
