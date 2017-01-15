@@ -30,6 +30,7 @@ body
 
 main
     {
+    margin-top: 3.375rem
     }
 
 a
@@ -72,7 +73,8 @@ a
     left: 50%;
     position: relative;
     top: 45%;
-    transform: translate(-50%, -45%);    
+    -webkit-transform: translate(-50%, -45%);
+            transform: translate(-50%, -45%);    
     }
 
 
@@ -106,15 +108,26 @@ a
 .each-result
     {
     border-bottom: 1px solid #d6d7d9;
-    padding: 1rem 0
+    padding: 1rem 0;
+    -webkit-transition: .5s;
+    transition: .5s
     }
 
-/*
-.each-result:nth-child(odd)
+.collapsed
     {
-    background-color: #f1f1f1;
+    display: none
     }
-*/
+
+.expanded
+    {
+    
+    }
+
+.caret
+    {
+    color: #aeb0b5;
+    text-align: right
+    }
 
 .org-name
     {
@@ -136,7 +149,7 @@ a
 
 .org-description
     {
-    margin-top: .5rem
+    margin-top: .5rem;
     }
 
 #details-pane {

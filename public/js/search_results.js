@@ -2,7 +2,7 @@ $(document).on("ready", function(){
     
     let refine_by = []
     
-    // Reset all
+    // Reset all checkboxes
     function resetBoxes(){
         $(".each-result").show()
         $(".form-check-input").attr("checked", false)
