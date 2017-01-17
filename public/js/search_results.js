@@ -53,5 +53,11 @@ $(document).on("ready", function(){
         $("#number-results").text(count + word)
     }
     
+    // Collapse descriptions by default
+    $(".each-result").click(function(){
+        $(this).find(".full-description").toggleClass("collapsed");
+        $(this).toggleClass("expanded");
+    });
+    
     resetBoxes()
 })
