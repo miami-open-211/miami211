@@ -147,6 +147,12 @@ a
     margin-right: .25rem
     }
 
+.org-categories ul
+    {
+    margin: .5rem 0 0 0;
+    padding-left: 1rem;
+    }
+
 .org-description
     {
     margin-top: .5rem;

@@ -17,7 +17,6 @@ $(document).on("ready", function(){
 		var marker = L.marker([
 			$(event.target).attr("data-latitude"),
 			$(event.target).attr("data-longitude")]);
-        console.log(marker);
 		mymap.addLayer(marker);
 		marker.bindPopup($(event.target).find('.org-name').text()).openPopup();
 	});
