@@ -30,6 +30,12 @@ get "/org_search" do # GET: /org_search?search_terms
     # Run a keyword search and put the results in an array named @search, which we will later send to the view
     @search = Ohanakapa.search("search", :keyword => params[:search_terms])
     
+    # Iterate through results, fetch each result by :id, and add :categories (this is a temporary measure until API is updated)
+    @search.each do |org|
+        test = Ohanakapa.location(org.id)
+        org[:categories] = test.services[0].categories
+    end
+    
     @search.sort_by! do |org| # Alphabetize results
         org.organization.name
     end
@@ -37,7 +43,9 @@ get "/org_search" do # GET: /org_search?search_terms
         "zip" => [],
         "city" => []
         }
-    @scripts = ["map.js", "search_results.js"] # List all JS files to load on this page (stored in ./public/js/)
+    
+    # List all JS files to load on this page (stored in ./public/js/)
+    @scripts = ["map.js", "search_results.js"] 
     
     def remove_escape_chars(search)
         search.each do |org|
@@ -53,6 +61,7 @@ get "/org_search" do # GET: /org_search?search_terms
     # Get cities & ZIP codes from @search for 'Refine by' column
     def get_refine_by(search)
         search.each do |org|
+            print org.categories
             if @refine_by["zip"].include?(org.address.postal_code) == false
                 @refine_by["zip"] << org.address.postal_code[0..4]
             end
