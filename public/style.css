@@ -143,8 +143,8 @@ a
 
 .org-address .fa
     {
-        color: #aeb0b5;
-        margin-right: .25rem
+    color: #aeb0b5;
+    margin-right: .25rem
     }
 
 .org-description
@@ -152,12 +152,15 @@ a
     margin-top: .5rem;
     }
 
+/* MAP -------------------------------- */
+
+
 #details-pane {
     position: relative;
 }
 
 #search-map {
-    position: fixed;
+    position: relative;
     top: 0;
     bottom: 0;
     width: 100%;
