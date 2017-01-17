@@ -1,10 +1,6 @@
-function triggerDrawPoints() {
-
-};
-
-
 $(document).on("ready", function(){
-	var mymap = L.map('search-map').setView([25.7617, -80.1918], 12);
+    
+	const mymap = L.map('search-map').setView([25.7617, -80.1918], 8);
 
 	$(window).on("resize", function () { 
 		$("#search-map").height($(window).height());
@@ -17,16 +13,14 @@ $(document).on("ready", function(){
 	    maxZoom: 18
 	}).addTo(mymap);
 
-
-
 	$(document).on("marker:show", function (event){
 		var marker = L.marker([
 			$(event.target).attr("data-latitude"),
 			$(event.target).attr("data-longitude")]);
+        console.log(marker);
 		mymap.addLayer(marker);
 		marker.bindPopup($(event.target).find('.org-name').text()).openPopup();
 	});
-
 
 });
 

@@ -23,7 +23,7 @@ $(document).on("ready", function(){
         else {
             refine_by.splice($.inArray(x, refine_by), 1)
         }
-        console.log(refine_by)
+//        console.log(refine_by)
     }
     
     // Hide/show .search-results according to refine_by contents
