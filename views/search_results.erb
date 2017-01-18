@@ -12,17 +12,29 @@
             </div>
         <% end %>
     </div>
-    <div id="refine-by-zip">
-        <h4>ZIP</h4>
-        <% @refine_by["zip"].each do |x_zip| %>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" value="<%= x_zip %>">
-                    <%= x_zip %>
-                </label>
-            </div>
-        <% end %>
+    
+    <div id="refine-by-radius">
+        <h4>Distance</h4>
+        
+        <span class="dropup">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Any
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <li>5</li>
+                <li>10</li>
+                <li>25</li>
+                <li>50</li>
+                <li>100</li>
+            </ul>
+        </span> of <span><form class="form-inline">
+            <span class="form-group">
+                <input type="text" name="search_terms" placeholder="ZIP" class="form-control" id="nav_search">
+            </span>
+        </form></span>
     </div>
+    
 </div>
 
 <!-- Second column -->
@@ -49,7 +61,7 @@
                 <% if result.categories %>
                     <ul class="">
                         <% result.categories.each do |category| %>
-                            <li><%= category.name %></li>
+                            <li><%= category %></li>
                         <% end %>
                     </ul>
                 <% end %>

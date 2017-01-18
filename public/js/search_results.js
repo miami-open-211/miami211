@@ -36,10 +36,10 @@ $(document).on("ready", function(){
                 $(this).show()
                 count++
             } else if (($.inArray(this_city, refine_by) === -1) && ($.inArray(this_zip, refine_by) === -1)){
-                $(this).hide()
+                $(this).hide();
                 $(this).trigger("marker:hide");
             } else {
-                $(this).show()
+                $(this).show();
                 $(this).trigger("marker:show");
                 count++
             }

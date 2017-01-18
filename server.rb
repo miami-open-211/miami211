@@ -32,16 +32,21 @@ get "/org_search" do # GET: /org_search?search_terms
     
     # Iterate through results, fetch each result by :id, and add :categories (this is a temporary measure until API is updated)
     @search.each do |org|
-        test = Ohanakapa.location(org.id)
-        org[:categories] = test.services[0].categories
+        find_by_id = Ohanakapa.location(org.id)
+        org[:categories] = find_by_id.services[0].categories.map do |x|
+            x.name
+        end
+        org[:categories].sort!
+#        org[:categories] = ["One", "Two", "Three"]
     end
     
     @search.sort_by! do |org| # Alphabetize results
         org.organization.name
     end
     @refine_by = {
+        "city" => [],
         "zip" => [],
-        "city" => []
+        "category" => []
         }
     
     # List all JS files to load on this page (stored in ./public/js/)
@@ -58,19 +63,24 @@ get "/org_search" do # GET: /org_search?search_terms
         end
     end
     
-    # Get cities & ZIP codes from @search for 'Refine by' column
+    # Get list of unique cities, ZIP codes & categories from @search for use in 'Refine by' column
     def get_refine_by(search)
         search.each do |org|
-            print org.categories
             if @refine_by["zip"].include?(org.address.postal_code) == false
                 @refine_by["zip"] << org.address.postal_code[0..4]
             end
             if @refine_by["city"].include?(org.address.city) == false
                 @refine_by["city"] << org.address.city
             end
+            org.categories.each do |category|
+                if @refine_by["category"].include?(category) == false
+                    @refine_by["category"] << category
+                end
+            end
         end
         @refine_by["zip"].sort!
-        @refine_by["city"].sort!    
+        @refine_by["city"].sort! 
+        @refine_by["category"].sort! 
     end  
     
     remove_escape_chars(@search)
