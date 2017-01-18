@@ -1,5 +1,6 @@
 $(document).on("ready", function(){
     
+    var points = {};
 	const mymap = L.map('search-map').setView([25.7617, -80.1918], 8);
 
 	$(window).on("resize", function () { 
@@ -14,11 +15,20 @@ $(document).on("ready", function(){
 	}).addTo(mymap);
 
 	$(document).on("marker:show", function (event){
+		var id = $(event.target).attr("data-id");
 		var marker = L.marker([
 			$(event.target).attr("data-latitude"),
 			$(event.target).attr("data-longitude")]);
 		mymap.addLayer(marker);
+		points[id] = marker;
 		marker.bindPopup($(event.target).find('.org-name').text()).openPopup();
+	});
+
+	$(document).on("marker:hide", function (event){
+		var id = $(event.target).attr("data-id");
+		var marker = points[$(event.target).attr("data-id")];
+		mymap.removeLayer(marker);
+		delete points[id];
 	});
 
 });
