@@ -31,17 +31,21 @@ get "/org_search" do # GET: /org_search?search_terms
     @search = Ohanakapa.search("search", :keyword => params[:search_terms])
     
     # Iterate through results, fetch each result by :id, and add :categories (this is a temporary measure until API is updated)
+    def getServices(org)
+#       find_by_id = Ohanakapa.location(org.id)
+#        if find_by_id.services[0] != nil
+#            org[:categories] = find_by_id.services[0].categories.map do |x|
+#                x.name
+#            end
+#            org[:categories].sort!
+#        else
+#            org[:categories] = []
+#        end
+        org[:categories] = ["One", "Two", "Three"]        
+    end
+    
     @search.each do |org|
-        find_by_id = Ohanakapa.location(org.id)
-        if find_by_id.services[0] != nil
-            org[:categories] = find_by_id.services[0].categories.map do |x|
-                x.name
-            end
-            org[:categories].sort!
-        else
-            org[:categories] = []
-        end
-#        org[:categories] = ["One", "Two", "Three"]
+        getServices(org)
     end
     
     @search.sort_by! do |org| # Alphabetize results

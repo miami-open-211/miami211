@@ -57,6 +57,11 @@
                 <%= result.address.city %>, 
                 <%= result.address.state_province %> <%= result.address.postal_code %>
             </div>
+            <div class="org-phone">
+                <% if result.phones[0] != nil %>
+                    (<%= result.phones[0].number[0..2] %>) <%= result.phones[0].number[4..-1] %>
+                <% end %>
+            </div>
             <div class="org-categories">
                 <% if result.categories %>
                     <ul class="">
