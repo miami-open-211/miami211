@@ -15,20 +15,26 @@ $(document).on("ready", function(){
 	}).addTo(mymap);
 
 	$(document).on("marker:show", function (event){
-		var id = $(event.target).attr("data-id");
-		var marker = L.marker([
-			$(event.target).attr("data-latitude"),
-			$(event.target).attr("data-longitude")]);
-		mymap.addLayer(marker);
-		points[id] = marker;
-		marker.bindPopup($(event.target).find('.org-name').text()).openPopup();
+		if (event && $(event.target).attr("data-id")) {
+			var id = $(event.target).attr("data-id");
+			if (points[id] !== undefined) return
+
+			var marker = L.marker([
+				$(event.target).attr("data-latitude"),
+				$(event.target).attr("data-longitude")]);
+			mymap.addLayer(marker);
+			points[id] = marker;
+			marker.bindPopup($(event.target).find('.org-name').text()).openPopup();
+		}
 	});
 
 	$(document).on("marker:hide", function (event){
-		var id = $(event.target).attr("data-id");
-		var marker = points[$(event.target).attr("data-id")];
-		mymap.removeLayer(marker);
-		delete points[id];
+		if (event && $(event.target).attr("data-id")) {
+			var id = $(event.target).attr("data-id");
+			var marker = points[$(event.target).attr("data-id")];
+			if (marker) mymap.removeLayer(marker);
+			delete points[id];
+		}
 	});
 
 });
