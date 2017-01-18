@@ -41,7 +41,12 @@
 <div class="col-md-4" id="search-results">
     <h3 id="number-results"><%= @search.length %> results</h3>
     <% @search.each do |result| %>
-        <div class="each-result" data-city="<%= result.address.city %>" data-zip="<%= result.address.postal_code %>" data-latitude="<%= result.latitude %>" data-longitude="<%= result.longitude %>">
+        <div class="each-result" 
+            data-id="<%= result.id %>"
+            data-city="<%= result.address.city %>" 
+            data-zip="<%= result.address.postal_code %>" 
+            data-latitude="<%= result.latitude %>" 
+            data-longitude="<%= result.longitude %>">
             <span class="org-name">
                 <% if result.organization.website %>
                     <a href="<%= result.organization.website %>"><%= result.organization.name %></a>
