@@ -5,7 +5,7 @@ $(document).on("ready", function(){
     // Reset all checkboxes
     function resetBoxes(){
         $(".each-result").show()
-        $(".each-result").trigger("marker:show");
+        $(".each-result").trigger("marker:show")
         $(".form-check-input").attr("checked", false)
     }
     
@@ -33,14 +33,15 @@ $(document).on("ready", function(){
             let this_city = $.trim($(this).attr("data-city"))
             let this_zip = $.trim($(this).attr("data-zip"))
             if (refine_by.length === 0){
-                $(this).show()
+                $(this).show();
+                $(this).trigger("marker:show")
                 count++
             } else if (($.inArray(this_city, refine_by) === -1) && ($.inArray(this_zip, refine_by) === -1)){
                 $(this).hide();
-                $(this).trigger("marker:hide");
+                $(this).trigger("marker:hide")
             } else {
                 $(this).show();
-                $(this).trigger("marker:show");
+                $(this).trigger("marker:show")
                 count++
             }
         })
