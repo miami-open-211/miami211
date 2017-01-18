@@ -12,43 +12,75 @@
             </div>
         <% end %>
     </div>
-    <div id="refine-by-zip">
-        <h4>ZIP</h4>
-        <% @refine_by["zip"].each do |x_zip| %>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" value="<%= x_zip %>">
-                    <%= x_zip %>
-                </label>
-            </div>
-        <% end %>
+    
+    <div id="refine-by-radius">
+        <h4>Distance</h4>
+        
+        <span class="dropup">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Any
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <li>5</li>
+                <li>10</li>
+                <li>25</li>
+                <li>50</li>
+                <li>100</li>
+            </ul>
+        </span> of <span><form class="form-inline">
+            <span class="form-group">
+                <input type="text" name="search_terms" placeholder="ZIP" class="form-control" id="nav_search">
+            </span>
+        </form></span>
     </div>
+    
 </div>
 
 <!-- Second column -->
 <div class="col-md-4" id="search-results">
     <h3 id="number-results"><%= @search.length %> results</h3>
     <% @search.each do |result| %>
-    <div class="each-result" data-city="<%= result.address.city %>" data-zip="<%= result.address.postal_code %>">
-        <span class="org-name">
-            <% if result.organization.website %>
-                <a href="<%= result.organization.website %>"><%= result.organization.name %></a>
-            <% else %>
-                <%= result.organization.name %>
-            <% end %>
-        </span>
-        <div class="org-address">
-            <%= result.address.address_1 %>, 
-            <% if result.address.address_2 %>
-                <%= result.address.address_2 %>, 
-            <% end %>
-            <%= result.address.city %>, 
-            <%= result.address.state_province %> <%= result.address.postal_code %>
+        <div class="each-result" 
+            data-id="<%= result.id %>"
+            data-city="<%= result.address.city %>" 
+            data-zip="<%= result.address.postal_code %>" 
+            data-latitude="<%= result.latitude %>" 
+            data-longitude="<%= result.longitude %>">
+            <span class="org-name">
+                <% if result.organization.website %>
+                    <a href="<%= result.organization.website %>"><%= result.organization.name %></a>
+                <% else %>
+                    <%= result.organization.name %>
+                <% end %>
+            </span>
+            <div class="org-address">
+                <%= result.address.address_1 %>, 
+                <% if result.address.address_2 %>
+                    <%= result.address.address_2 %>, 
+                <% end %>
+                <%= result.address.city %>, 
+                <%= result.address.state_province %> <%= result.address.postal_code %>
+            </div>
+            <div class="org-categories">
+                <% if result.categories %>
+                    <ul class="">
+                        <% result.categories.each do |category| %>
+                            <li><%= category %></li>
+                        <% end %>
+                    </ul>
+                <% end %>
+            </div>
+            <div class="org-description">
+                <div class="caret full-description">More Info <i class="fa fa-caret-down" aria-hidden="true"></i></div>
+                <div class="full-description collapsed">
+                    <%= result.organization.description %>
+                </div>
+                <div class="full-description collapsed caret">
+                    Collapse <i class="fa fa-caret-up" aria-hidden="true"></i>
+                </div>
+            </div>   
         </div>
-        <div class="org-description">
-            <%= result.organization.description[0...139] %> ...
-        </div>   
-    </div>
     <% end %>
 </div>
 
