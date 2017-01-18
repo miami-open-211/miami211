@@ -16,26 +16,24 @@
     <div id="refine-by-radius">
         <h4>Distance</h4>
         
-            Within <span class="dropup">
-                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Any
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                    <li>5</li>
-                    <li>10</li>
-                    <li>25</li>
-                    <li>50</li>
-                    <li>100</li>
-                </ul>
-            </span> miles of 
-        
-            <form class="form-inline">
-                <div class="form-group col-md-6">
-                    <input type="text" name="search_terms" placeholder="ZIP" class="form-control" id="nav_search">
-                </div>
-            </form>
-            
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="radius">Within</label>
+                <select class="form-control" id="radius" placeholder="any">
+                    <option>2</option>
+                    <option>5</option>
+                    <option>10</option>
+                    <option>25</option>
+                    <option>50</option>
+                    <option>100</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="this-zip">miles of</label>
+                <input type="text" pattern="[0-9]{5}" class="form-control" id="this-zip" placeholder="ZIP">
+            </div>
+            <button type="submit" class="btn btn-default">Go</button>
+        </form> 
     </div>
     
 </div>
