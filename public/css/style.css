@@ -78,6 +78,13 @@ a
             transform: translate(-50%, -45%);    
     }
 
+.ui-front
+{
+    background-color: #fff;
+    border: 1px solid #d6d7d9;
+    border-radius: .25rem;
+    z-index: 2000 !important
+}
 
 /* SEARCH REFINE ---------------------- */
 

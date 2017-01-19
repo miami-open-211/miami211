@@ -8,6 +8,7 @@ require "sinatra/reloader" if development?
 
 get "/" do
     @hide_search = true # Hide search field in navbar
+     @scripts = ["search_suggest.js"] 
     erb(:home)
 end
 
@@ -58,7 +59,7 @@ get "/org_search" do # GET: /org_search?search_terms
         }
     
     # List all JS files to load on this page (stored in ./public/js/)
-    @scripts = ["map.js", "search_results.js"] 
+    @scripts = ["map.js", "search_results.js", "search_suggest.js"] 
     
     def remove_escape_chars(search)
         search.each do |org|
