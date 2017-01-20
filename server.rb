@@ -3,6 +3,9 @@ system("clear")
 require "ohanakapa"
 require "sinatra"
 require "sinatra/reloader" if development?
+require 'rack/ssl-enforcer' if production?
+
+use Rack::SslEnforcer if production?
 
 # HOME ==========================================
 
@@ -20,29 +23,30 @@ get "/org_search" do # GET: /org_search?search_terms
     # Set up Ohanakapa gem to handle API call
     Ohanakapa.configure do |config|
         # DEVELOPMENT
-        config.api_token = "7a7031966c424391bbab9900fcf3fa0a" 
-        config.api_endpoint = "https://ohana-api.herokuapp.com/api/" 
+#        config.api_token = "" 
+#        config.api_endpoint = "https://ohana-api.herokuapp.com/api/" 
         
         # PRODUCTION
-        # config.api_token = ENV['OHANA_API_TOKEN'] if ENV['OHANA_API_TOKEN'].present?
-        # config.api_endpoint = ENV['OHANA_API_ENDPOINT']
+         config.api_token = ENV['OHANA_API_TOKEN']
+         config.api_endpoint = ENV['OHANA_API_ENDPOINT']
     end
     
     # Run a keyword search and put the results in an array named @search, which we will later send to the view
-    @search = Ohanakapa.search("search", :keyword => params[:search_terms], :location => '215 NE 82nd Ter, Miami, Florida 33138, United States')
+
+    @search = Ohanakapa.search("search", :keyword => params[:search_terms], :per_page => 100, :location => '215 NE 82nd Ter, Miami, Florida 33138, United States')
     
     # Iterate through results, fetch each result by :id, and add :categories (this is a temporary measure until API is updated)
     def getServices(org)
-#       find_by_id = Ohanakapa.location(org.id)
-#        if find_by_id.services[0] != nil
-#            org[:categories] = find_by_id.services[0].categories.map do |x|
-#                x.name
-#            end
-#            org[:categories].sort!
-#        else
-#            org[:categories] = []
-#        end
-        org[:categories] = ["One", "Two", "Three"]        
+       find_by_id = Ohanakapa.location(org.id)
+        if find_by_id.services[0] != nil
+            org[:categories] = find_by_id.services[0].categories.map do |x|
+                x.name
+            end
+            org[:categories].sort!
+        else
+            org[:categories] = []
+        end
+#        org[:categories] = ["One", "Two", "Three"]   # For development only     
     end
     
     @search.each do |org|
