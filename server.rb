@@ -20,8 +20,8 @@ get "/org_search" do # GET: /org_search?search_terms
     # Set up Ohanakapa gem to handle API call
     Ohanakapa.configure do |config|
         # DEVELOPMENT
-        config.api_token = "" 
-        config.api_endpoint = "https://ohana-api.herokuapp.com/api/" 
+#        config.api_token = "" 
+#        config.api_endpoint = "https://ohana-api.herokuapp.com/api/" 
         
         # PRODUCTION
          config.api_token = ENV['OHANA_API_TOKEN'] if ENV['OHANA_API_TOKEN'].present?
