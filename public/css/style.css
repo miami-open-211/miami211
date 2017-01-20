@@ -51,6 +51,14 @@ a
     padding: 0
     }
 
+.ui-front /* Autocomplete */
+{
+    background-color: #fff;
+    border: 1px solid #d6d7d9;
+    border-radius: .25rem;
+    z-index: 2000 !important
+}
+
 /* NAVBAR ----------------------------- */
 
 .navbar
@@ -77,14 +85,6 @@ a
     -webkit-transform: translate(-50%, -45%);
             transform: translate(-50%, -45%);    
     }
-
-.ui-front
-{
-    background-color: #fff;
-    border: 1px solid #d6d7d9;
-    border-radius: .25rem;
-    z-index: 2000 !important
-}
 
 /* SEARCH REFINE ---------------------- */
 
@@ -157,17 +157,9 @@ a
     font-weight: 700
     }
 
-/*
-.org-address
+.org-address, .org-phone
     {
-
-    }
-*/
-
-.org-address .fa
-    {
-    color: #aeb0b5;
-    margin-right: .25rem
+    color: #2e8540;
     }
 
 .org-categories ul

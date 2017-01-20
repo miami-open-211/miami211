@@ -65,7 +65,9 @@
             </div>
             <div class="org-phone">
                 <% if result.phones[0] != nil %>
-                    (<%= result.phones[0].number[0..2] %>) <%= result.phones[0].number[4..-1] %>
+                    <a href="tel:+1-<%= result.phones[0].number %>">
+                        (<%= result.phones[0].number[0..2] %>) <%= result.phones[0].number[4..-1] %>
+                    </a>
                 <% end %>
             </div>
             <div class="org-categories">
