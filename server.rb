@@ -24,8 +24,8 @@ get "/org_search" do # GET: /org_search?search_terms
         config.api_endpoint = "https://ohana-api.herokuapp.com/api/" 
         
         # PRODUCTION
-        # config.api_token = ENV['OHANA_API_TOKEN'] if ENV['OHANA_API_TOKEN'].present?
-        # config.api_endpoint = ENV['OHANA_API_ENDPOINT']
+         config.api_token = ENV['OHANA_API_TOKEN'] if ENV['OHANA_API_TOKEN'].present?
+         config.api_endpoint = ENV['OHANA_API_ENDPOINT']
     end
     
     # Run a keyword search and put the results in an array named @search, which we will later send to the view
