@@ -24,7 +24,7 @@ get "/org_search" do # GET: /org_search?search_terms
 #        config.api_endpoint = "https://ohana-api.herokuapp.com/api/" 
         
         # PRODUCTION
-         config.api_token = ENV['OHANA_API_TOKEN'] if ENV['OHANA_API_TOKEN'].present?
+         config.api_token = ENV['OHANA_API_TOKEN']
          config.api_endpoint = ENV['OHANA_API_ENDPOINT']
     end
     
