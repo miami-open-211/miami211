@@ -11,7 +11,7 @@ use Rack::SslEnforcer if production?
 
 get "/" do
     @hide_search = true # Hide search field in navbar
-    @scripts = ["search_suggest.js"] 
+     @scripts = ["search_suggest.js"] 
     erb(:home)
 end
 
@@ -19,24 +19,24 @@ end
 # SEARCH RESULTS ================================
 
 get "/org_search" do # GET: /org_search?search_terms
-
+    
     # Set up Ohanakapa gem to handle API call
     Ohanakapa.configure do |config|
-        if production?
-            config.api_token = ENV['OHANA_API_TOKEN']
-            config.api_endpoint = ENV['OHANA_API_ENDPOINT']
-        else
-            config.api_token = "" 
-            config.api_endpoint = "https://ohana-api.herokuapp.com/api/"
-        end
+        # DEVELOPMENT
+#        config.api_token = "" 
+#        config.api_endpoint = "https://ohana-api.herokuapp.com/api/" 
+        
+        # PRODUCTION
+         config.api_token = ENV['OHANA_API_TOKEN']
+         config.api_endpoint = ENV['OHANA_API_ENDPOINT']
     end
-
+    
     # Run a keyword search and put the results in an array named @search, which we will later send to the view
     @search = Ohanakapa.search("search", :keyword => params[:search_terms], :per_page => 100)
-
+    
     # Iterate through results, fetch each result by :id, and add :categories (this is a temporary measure until API is updated)
     def getServices(org)
-        find_by_id = Ohanakapa.location(org.id)
+       find_by_id = Ohanakapa.location(org.id)
         if find_by_id.services[0] != nil
             org[:categories] = find_by_id.services[0].categories.map do |x|
                 x.name
@@ -45,13 +45,13 @@ get "/org_search" do # GET: /org_search?search_terms
         else
             org[:categories] = []
         end
-        #        org[:categories] = ["One", "Two", "Three"]   # For development only     
+#        org[:categories] = ["One", "Two", "Three"]   # For development only     
     end
-
+    
     @search.each do |org|
         getServices(org)
     end
-
+    
     @search.sort_by! do |org| # Alphabetize results
         org.organization.name
     end
@@ -60,10 +60,10 @@ get "/org_search" do # GET: /org_search?search_terms
         "zip" => [],
         "category" => []
         }
-
+    
     # List all JS files to load on this page (stored in ./public/js/)
     @scripts = ["map.js", "search_results.js", "search_suggest.js"] 
-
+    
     def remove_escape_chars(search)
         search.each do |org|
             org.organization.description.gsub!("\\n*", "<br/>")
@@ -74,7 +74,7 @@ get "/org_search" do # GET: /org_search?search_terms
             org.organization.description.gsub!("##", "")
         end
     end
-
+    
     # Get list of unique cities, ZIP codes & categories from @search for use in 'Refine by' column
     def get_refine_by(search)
         search.each do |org|
@@ -94,10 +94,10 @@ get "/org_search" do # GET: /org_search?search_terms
         @refine_by["city"].sort! 
         @refine_by["category"].sort! 
     end  
-
+    
     remove_escape_chars(@search)
     get_refine_by(@search)
-
+    
     erb(:search_results) # Render ./views/search_results
-
+    
 end
