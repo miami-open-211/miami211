@@ -32,7 +32,8 @@ get "/org_search" do # GET: /org_search?search_terms
     end
     
     # Run a keyword search and put the results in an array named @search, which we will later send to the view
-    @search = Ohanakapa.search("search", :keyword => params[:search_terms], :per_page => 100)
+
+    @search = Ohanakapa.search("search", :keyword => params[:search_terms], :per_page => 100, :location => '215 NE 82nd Ter, Miami, Florida 33138, United States')
     
     # Iterate through results, fetch each result by :id, and add :categories (this is a temporary measure until API is updated)
     def getServices(org)
@@ -62,7 +63,9 @@ get "/org_search" do # GET: /org_search?search_terms
         }
     
     # List all JS files to load on this page (stored in ./public/js/)
-    @scripts = ["map.js", "search_results.js", "search_suggest.js"] 
+    # map_geo.js is being compiled through browserify and stored in bundle.js
+    # which is being stored in the head.
+    @scripts = ["map.js", "map_geo.js", "search_results.js", "search_suggest.js"] 
     
     def remove_escape_chars(search)
         search.each do |org|
