@@ -20,7 +20,7 @@ get "/org_search" do # GET: /org_search?search_terms
     # Set up Ohanakapa gem to handle API call
     Ohanakapa.configure do |config|
         # DEVELOPMENT
-        config.api_token = "7a7031966c424391bbab9900fcf3fa0a" 
+        config.api_token = "" 
         config.api_endpoint = "https://ohana-api.herokuapp.com/api/" 
         
         # PRODUCTION
@@ -33,16 +33,16 @@ get "/org_search" do # GET: /org_search?search_terms
     
     # Iterate through results, fetch each result by :id, and add :categories (this is a temporary measure until API is updated)
     def getServices(org)
-#       find_by_id = Ohanakapa.location(org.id)
-#        if find_by_id.services[0] != nil
-#            org[:categories] = find_by_id.services[0].categories.map do |x|
-#                x.name
-#            end
-#            org[:categories].sort!
-#        else
-#            org[:categories] = []
-#        end
-        org[:categories] = ["One", "Two", "Three"]        
+       find_by_id = Ohanakapa.location(org.id)
+        if find_by_id.services[0] != nil
+            org[:categories] = find_by_id.services[0].categories.map do |x|
+                x.name
+            end
+            org[:categories].sort!
+        else
+            org[:categories] = []
+        end
+#        org[:categories] = ["One", "Two", "Three"]   # For development only     
     end
     
     @search.each do |org|
