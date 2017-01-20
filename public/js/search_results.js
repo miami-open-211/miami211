@@ -6,6 +6,7 @@ $(document).on("ready", function(){
     function resetBoxes(){
         $(".each-result").show()
         $(".each-result").trigger("marker:show")
+        $(".each-result").trigger("distance:display");
         $(".form-check-input").attr("checked", false)
     }
     
@@ -35,6 +36,7 @@ $(document).on("ready", function(){
             if (refine_by.length === 0){
                 $(this).show();
                 $(this).trigger("marker:show")
+                $(this).trigger("distance:display");
                 count++
             } else if (($.inArray(this_city, refine_by) === -1) && ($.inArray(this_zip, refine_by) === -1)){
                 $(this).hide();
@@ -42,6 +44,7 @@ $(document).on("ready", function(){
             } else {
                 $(this).show();
                 $(this).trigger("marker:show")
+                $(this).trigger("distance:display");
                 count++
             }
         })
