@@ -33,7 +33,7 @@ get "/org_search" do # GET: /org_search?search_terms
     
     # Run a keyword search and put the results in an array named @search, which we will later send to the view
 
-    @search = Ohanakapa.search("search", :keyword => params[:search_terms], :per_page => 100, :location => '215 NE 82nd Ter, Miami, Florida 33138, United States')
+    @search = Ohanakapa.search("search", :keyword => params[:search_terms], :per_page => 100, :location => "215 NE 82nd Ter, Miami, Florida 33138, United States", :radius => 100)
     
     # Iterate through results, fetch each result by :id, and add :categories (this is a temporary measure until API is updated)
     def getServices(org)

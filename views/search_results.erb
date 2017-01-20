@@ -15,25 +15,17 @@
     
     <div id="refine-by-radius">
         <h4>Distance</h4>
-        
-        <form class="form-inline">
-            <div class="form-group">
-                <label for="radius">Within</label>
-                <select class="form-control" id="radius" placeholder="any">
-                    <option>2</option>
-                    <option>5</option>
-                    <option>10</option>
-                    <option>25</option>
-                    <option>50</option>
-                    <option>100</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="this-zip">miles of</label>
-                <input type="text" pattern="[0-9]{5}" class="form-control" id="this-zip" placeholder="ZIP">
-            </div>
-            <button type="submit" class="btn btn-default">Go</button>
-        </form> 
+        <div class="form-group">
+            <label for="radius">Within</label>
+            <select class="form-control" id="radius" placeholder="any">
+                <option value="100">100 miles</option>
+                <option value="50">50 miles</option>
+                <option value="25">25 miles</option>
+                <option value="10">10 miles</option>
+                <option value="5">5 miles</option>
+                <option value="2">2 miles</option>
+            </select>
+        </div>
     </div>
     
 </div>
@@ -62,9 +54,10 @@
                 <% end %>
                 <%= result.address.city %>, 
                 <%= result.address.state_province %> <%= result.address.postal_code %>
+                (<span class="distance">
+                </span>)
             </div>
-            <div class="distance">
-            </div>
+           
             <div class="org-phone">
                 <% if result.phones[0] != nil %>
                     <a href="tel:+1-<%= result.phones[0].number %>">
