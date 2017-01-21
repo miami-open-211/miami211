@@ -157,7 +157,7 @@ a
     font-weight: 700
     }
 
-.org-address, .org-phone
+.org-address, .org-phone a
     {
     color: #2e8540;
     }
