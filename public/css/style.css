@@ -38,7 +38,7 @@ a
     color: #0071bc
     }
 
-.btn
+.btn-primary
     {
     background-color: #0071bc;
     border: 1px solid #0071bc;
@@ -94,7 +94,7 @@ a
     padding: 1rem 1rem 0;
     }
 
-#search-refine .btn
+#search-refine .btn-primary
     {
     background-color: #d6d7d9;
     border: 1px solid #d6d7d9;
