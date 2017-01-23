@@ -31,6 +31,8 @@ $(document).on("geocode:get", function (event){
 			lng = position.coords["longitude"];	
 			geo = [lat, lng];
 			console.log(geo);
+			$('input[name=lat]').val( lat );
+			$('input[name=lng]').val( lng );
 
 			var MAPBOX_TOKEN = 'pk.eyJ1IjoiZXJuaWVhdGx5ZCIsImEiOiJNcmFnemM0In0.gP2qLay9LMBD1mCyffesMw';
 			geocode( MAPBOX_TOKEN, [lng, lat] ).done( function(data){
@@ -48,11 +50,29 @@ $(document).on("geocode:get", function (event){
 	}
 });
 
-$(document).on("distance:display", function (event){
-	if (event && $(event.target).attr("data-id")) {
 
-		// var from = [25.850487, -80.191390];
+getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
+
+
+$(document).on("distance:display", function (event){
+	if (event && $(event.target).attr("data-id") && getUrlParameter('lat') && getUrlParameter('lng')) {
+
+		geo = [ parseFloat(getUrlParameter('lat')), parseFloat(getUrlParameter('lng')) ];
 		if (geo) {
+			console.log(geo);
 			var from = geo;
 
 			var to = [
