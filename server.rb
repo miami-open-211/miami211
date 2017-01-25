@@ -23,12 +23,12 @@ get "/org_search" do # GET: /org_search?search_terms
     # Set up Ohanakapa gem to handle API call
     Ohanakapa.configure do |config|
         # DEVELOPMENT
-#        config.api_token = "" 
-#        config.api_endpoint = "https://ohana-api.herokuapp.com/api/" 
+        config.api_token = "" 
+        config.api_endpoint = "https://ohana-api.herokuapp.com/api/" 
         
         # PRODUCTION
-         config.api_token = ENV['OHANA_API_TOKEN']
-         config.api_endpoint = ENV['OHANA_API_ENDPOINT']
+#         config.api_token = ENV['OHANA_API_TOKEN']
+#         config.api_endpoint = ENV['OHANA_API_ENDPOINT']
     end
     
     # Run a keyword search and put the results in an array named @search, which we will later send to the view
