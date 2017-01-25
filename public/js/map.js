@@ -1,14 +1,11 @@
+
+
+
 $(document).on("ready", function(){
-    
-    var GEOLOCATION = false;
+  
+	var MAPBOX_TOKEN = 'pk.eyJ1IjoiZXJuaWVhdGx5ZCIsImEiOiJNcmFnemM0In0.gP2qLay9LMBD1mCyffesMw';  
     var points = {};
 	const mymap = L.map('search-map').setView([25.7617, -80.1918], 8);
-	const MAPBOX_TOKEN = 'pk.eyJ1IjoiZXJuaWVhdGx5ZCIsImEiOiJNcmFnemM0In0.gP2qLay9LMBD1mCyffesMw';
-
-	if('geolocation' in navigator) {
-		GEOLOCATION = true;
-	}
-
 
 	$(window).on("resize", function () { 
 		$("#search-map").height($(window).height());
