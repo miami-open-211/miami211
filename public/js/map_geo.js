@@ -72,7 +72,7 @@ $(document).on("distance:display", function (event){
 
 		geo = [ parseFloat(getUrlParameter('lat')), parseFloat(getUrlParameter('lng')) ];
 		if (geo) {
-			console.log(geo);
+//			console.log(geo);
 			var from = geo;
 
 			var to = [
@@ -80,7 +80,8 @@ $(document).on("distance:display", function (event){
 				parseFloat($(event.target).attr("data-longitude"))];
 
 			var distance = turf.distance(from, to, "miles");
-			$(event.target).find('.distance').text( distance.toFixed(2) + ' miles' );			
+			$(event.target).find('.distance').text( distance.toFixed(2) + ' miles' );
+            $(event.target).attr("data-distance", distance.toFixed(2));
 		}
 
 	}

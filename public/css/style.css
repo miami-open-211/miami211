@@ -67,6 +67,9 @@ a
     border-bottom: 1px solid #d6d7d9;
     }
 
+#geo{
+    background-color: transparent
+}
 
 /* HOME ------------------------------- */
 
@@ -101,7 +104,7 @@ a
     color: #212121
     }
 
-#refine-by-city, #refine-by-radius
+#refine-by-city, #refine-by-radius, #refine-by-service
     {
     color: #212121;
     padding: 1rem 0 0 1rem
@@ -109,7 +112,7 @@ a
 
     @media (max-width: 480px){
         
-        #refine-by-city    
+        #refine-by-radius    
         {
         padding-top: 3rem
         }

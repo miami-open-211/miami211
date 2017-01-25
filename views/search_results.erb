@@ -1,7 +1,22 @@
 <!-- First column -->
 <div class="col-md-2" id="search-refine">
     <h3>Refine by</h3>
-    <div id="refine-by-city">
+    <div id="refine-by-radius">
+        <h4>Distance</h4>   
+        <div class="form-inline">
+            <div class="form-group">
+                <label for="radius">Within</label>
+                <select class="form-control" id="radius" placeholder="any">
+                    <option value="50">50 miles</option>
+                    <option value="25">25 miles</option>
+                    <option value="10">10 miles</option>
+                    <option value="5">5 miles</option>
+                    <option value="2">2 miles</option>
+                </select>
+            </div>
+        </div> 
+    </div>
+<!--    <div id="refine-by-city">
         <h4>City</h4>
         <% @refine_by["city"].each do |x_city| %>
             <div class="form-check">
@@ -11,27 +26,18 @@
                 </label>
             </div>
         <% end %>
-    </div>
-    
-    <div id="refine-by-radius">
-        <h4>Distance</h4>
-        
-        <div class="form-inline">
-            <div class="form-group">
-                <label for="radius">Within</label>
-                <select class="form-control" id="radius" placeholder="any">
-                    <option value="100">100 miles</option>
-                    <option value="50">50 miles</option>
-                    <option value="25">25 miles</option>
-                    <option value="10">10 miles</option>
-                    <option value="5">5 miles</option>
-                    <option value="2">2 miles</option>
-                </select>
+    </div>-->
+    <div id="refine-by-service">
+        <h4>Category</h4>
+        <% @refine_by["category"].each do |x_category| %>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" value="<%= x_category %>">
+                    <%= x_category %>
+                </label>
             </div>
-        </div> 
-        
+        <% end %>
     </div>
-    
 </div>
 
 <!-- Second column -->

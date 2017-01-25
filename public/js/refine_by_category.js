@@ -10,7 +10,7 @@ $(document).on("ready", function(){
         $(".form-check-input").attr("checked", false)
     }
     
-    // When a 'Refine by' box is checked...
+    // When a 'Refine by City' box is checked...
     $(".form-check-input").click(function(){ 
         addRefine($(this).val())
         showRefined()
