@@ -7,15 +7,14 @@
             <div class="form-group">
                 <label for="radius">Within</label>
                 <select class="form-control" id="radius" placeholder="any">
-                   <option value="100">100 miles</option>
-                    <option value="50">50 miles</option>
-                    <option value="25">25 miles</option>
+                    <option value="60">60 miles</option>
+                    <option value="30">30 miles</option>
                     <option value="10">10 miles</option>
                     <option value="5">5 miles</option>
                     <option value="2">2 miles</option>
                 </select>
             </div>
-        </div> 
+        </div>
     </div>
 
     <div id="refine-by-service">
@@ -24,7 +23,7 @@
             <div class="form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" type="checkbox" value="<%= category_name %>">
-                    <%= category_name %>
+                    <%= category_name %> <span class="category-count">(<%= category_count %>)</span>
                 </label>
             </div>
         <% end %>

@@ -3,15 +3,15 @@
     <!-- Search form -->
     <% if @hide_search != true %>
         <form action="/org_search" method="get" class="form-inline">
-             <div class="form-group">
+             <span class="form-group">
                 <input type="text" name="search_terms" placeholder="I need help with..." class="form-control" id="home_search">
-                <label class="radio-inline">
-                    <input type="radio" name="inlineRadioOptions" id="geo" value="option1">
-                </label>
-                <input type="text" name="address" id="address" placeholder="near me (optional)" class="form-control geo-gray">
-                <input type="hidden" name="lat" val=""><input type="hidden" name="lng" val="-80.1919">
+                <input type="hidden" name="address" value="<%= @address %>">
+                <input type="hidden" name="lat" value=""><input type="hidden" name="lng" value="-80.1919">
                 <button type="submit" id="submit-button" class="btn btn-primary">Search</button>
-            </div>
+            </span>
+            <span class="navbar-text" id="my-address">
+                Your location: <%= @address[0..-16].gsub("Florida", "FL") %> <a href="/">Reset</a>
+            </span>
         </form>
-    <% end %>  
+    <% end %> 
 </nav>

@@ -70,9 +70,13 @@ getUrlParameter = function getUrlParameter(sParam) {
 
 
 $(document).on("distance:display", function (event){
-    if (event && $(event.target).attr("data-id") && getUrlParameter('lat') && getUrlParameter('lng')) {
+    let this_lat = getUrlParameter('lat')
+    let this_lng = getUrlParameter("lng")
+    if (this_lat === "") { this_lat = 25.7713 }
+    if (this_lng === "") { this_lng = -80.1919 }
+    if (event && $(event.target).attr("data-id")) {
 
-		geo = [ parseFloat(getUrlParameter('lat')), parseFloat(getUrlParameter('lng')) ];
+		geo = [ parseFloat(this_lat), parseFloat(this_lng) ];
         console.log("test: " + geo)
 		if (geo) {
 //			console.log(geo);

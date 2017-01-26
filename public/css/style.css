@@ -67,11 +67,15 @@ a
     border-bottom: 1px solid #d6d7d9;
     }
 
-.geo-gray
+#my-address 
     {
-    background-color: #f1f1f1
+    padding-left: 1rem
     }
 
+#my-address a
+    {
+    padding-left: 1rem
+    }
 /* HOME ------------------------------- */
 
 #home-search
@@ -93,6 +97,11 @@ a
 #suggestions
     {
     padding: 2rem 0;
+    }
+
+.geo-gray
+    {
+    background-color: #f1f1f1
     }
 
 /* SEARCH REFINE ---------------------- */
@@ -132,6 +141,7 @@ a
     padding: 1rem 1rem 0;
     }
 
+
 .each-result
     {
     border-bottom: 1px solid #d6d7d9;
@@ -169,7 +179,7 @@ a
 
 .category-count
     {
-    color: #aeb0b5;  
+    color: #d6d7d9;  
     }
 
 .org-description

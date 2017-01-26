@@ -46,7 +46,7 @@ get "/org_search" do # GET: /org_search?search_terms
     end
 
     # Run a keyword search and put the results in an array named @search, which we will later send to the view
-    @search = Ohanakapa.search("search", :keyword => params[:search_terms], :per_page => 100, :location => @address, :radius => 100)
+    @search = Ohanakapa.search("search", :keyword => params[:search_terms], :per_page => 50, :location => @address, :radius => 60)
     
     # Iterate through results, fetch each result by :id, and add :categories (this is a temporary measure until API is updated)
     def getServices(org)
