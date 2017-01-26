@@ -16,24 +16,14 @@
             </div>
         </div> 
     </div>
-<!--    <div id="refine-by-city">
-        <h4>City</h4>
-        <% @refine_by["city"].each do |x_city| %>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" value="<%= x_city %>">
-                    <%= x_city %>
-                </label>
-            </div>
-        <% end %>
-    </div>-->
+
     <div id="refine-by-service">
         <h4>Category</h4>
-        <% @refine_by["category"].each do |x_category| %>
+        <% @refine_by.each do |category_name, category_count| %>
             <div class="form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" value="<%= x_category %>">
-                    <%= x_category %>
+                    <input class="form-check-input" type="checkbox" value="<%= category_name %>">
+                    <%= category_name %>
                 </label>
             </div>
         <% end %>
@@ -67,7 +57,6 @@
                 (<span class="distance">
                 </span>)
             </div>
-           
             <div class="org-phone">
                 <% if result.phones[0] != nil %>
                     <a href="tel:+1-<%= result.phones[0].number %>">
@@ -79,7 +68,7 @@
                 <% if result.categories %>
                     <ul class="">
                         <% result.categories.each do |category| %>
-                            <li><%= category %></li>
+                            <li class="category"><%= category %></li>
                         <% end %>
                     </ul>
                 <% end %>

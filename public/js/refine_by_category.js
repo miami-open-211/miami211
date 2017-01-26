@@ -30,22 +30,37 @@ $(document).on("ready", function(){
     // Hide/show .search-results according to refine_by contents
     function showRefined(){
         let count = 0
-        $(".each-result").each(function(){
-            let this_city = $.trim($(this).attr("data-city"))
-            let this_zip = $.trim($(this).attr("data-zip"))
-            if (refine_by.length === 0){
-                $(this).show();
-                $(this).trigger("marker:show")
-                $(this).trigger("distance:display");
+        $(".each-result").each(function(){ // Go through each search result
+            const this_result = $(this)
+            if (refine_by.length === 0){ // If no checkbox is selected, show this result
+                this_result.show()
+                this_result.trigger("marker:show")
+                this_result.trigger("distance:display")
                 count++
-            } else if (($.inArray(this_city, refine_by) === -1) && ($.inArray(this_zip, refine_by) === -1)){
-                $(this).hide();
-                $(this).trigger("marker:hide")
-            } else {
-                $(this).show();
-                $(this).trigger("marker:show")
-                $(this).trigger("distance:display");
-                count++
+            } else { 
+                // Otherwise, add each category listed under this result to an array
+                const categories = $(this).find("li.category").map(function (){
+                    return $(this).text() 
+                }).get()
+                
+                function checkCategories(refine_by){
+                    for (i = 0; i < refine_by.length; i++){
+                        if ($.inArray(refine_by[i], categories) === -1){
+                            return false
+                        }
+                    }
+                    return true
+                }
+                
+                if (checkCategories(refine_by) === true){
+                    this_result.show()
+                    this_result.trigger("marker:show")
+                    this_result.trigger("distance:display")
+                    count++
+                } else {
+                    this_result.hide()
+                    this_result.trigger("marker:hide")
+                }  
             }
         })
         numberResults(count)

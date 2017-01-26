@@ -67,9 +67,10 @@ a
     border-bottom: 1px solid #d6d7d9;
     }
 
-#geo{
+#geo
+    {
     background-color: transparent
-}
+    }
 
 /* HOME ------------------------------- */
 
@@ -169,6 +170,11 @@ a
     {
     margin: .5rem 0 0 0;
     padding-left: 1rem;
+    }
+
+.category-count
+    {
+    color: #aeb0b5   
     }
 
 .org-description

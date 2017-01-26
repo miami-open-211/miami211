@@ -36,9 +36,10 @@ get "/org_search" do # GET: /org_search?search_terms
     
     # Iterate through results, fetch each result by :id, and add :categories (this is a temporary measure until API is updated)
     def getServices(org)
-##        if settings.development?
-#            org[:categories] = ["One", "Two", "Three"]
-#        else # Use multiple API calls for production only
+        if settings.development?
+            arr = ["Alpha", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf", "Hotel", "India"]
+            org[:categories] = [arr[rand(0..2)], arr[rand(3..5)], arr[rand(6..8)]].sort
+        else # Use multiple API calls for production only
             find_by_id = Ohanakapa.location(org.id)
             if find_by_id.services[0] != nil
                 org[:categories] = find_by_id.services[0].categories.map do |x|
@@ -48,7 +49,7 @@ get "/org_search" do # GET: /org_search?search_terms
             else
                 org[:categories] = []
             end
-#        end
+        end
     end
     
     @search.each do |org|
@@ -58,9 +59,8 @@ get "/org_search" do # GET: /org_search?search_terms
     @search.sort_by! do |org| # Alphabetize results
         org.organization.name
     end
-    @refine_by = {
-        "category" => []
-        }
+    
+    @refine_by = []
     
     # List all JS files to load on this page (stored in ./public/js/)
     # map_geo.js is being compiled through browserify and stored in bundle.js
@@ -81,21 +81,16 @@ get "/org_search" do # GET: /org_search?search_terms
     # Get list of unique cities, ZIP codes & categories from @search for use in 'Refine by' column
     def get_refine_by(search)
         search.each do |org|
-#            if @refine_by["zip"].include?(org.address.postal_code) == false
-#                @refine_by["zip"] << org.address.postal_code[0..4]
-#            end
-            if @refine_by["city"].include?(org.address.city) == false
-                @refine_by["city"] << org.address.city
-            end
-            org.categories.each do |category|
-                if @refine_by["category"].include?(category) == false
-                    @refine_by["category"] << category
-                end
+            org.categories.each do |cat|
+#                if @refine_by.include?(cat) == false
+                    @refine_by << cat
+#                end
             end
         end
-#        @refine_by["zip"].sort!
-        @refine_by["city"].sort! 
-        @refine_by["category"].sort! 
+        @refine_by = @refine_by.each_with_object(Hash.new(0)) do |name, hash|
+            hash[name] += 1
+        end
+        @refine_by = Hash[ @refine_by.sort_by { |key, val| key }]
     end  
     
     remove_escape_chars(@search)
