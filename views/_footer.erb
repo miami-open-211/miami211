@@ -1,4 +1,11 @@
-<% if @scripts %>
+<div id="version">
+   <% if @version == 0 %>
+    v.1.0.a
+    <% else %>
+    v.1.0.b
+    <% end %>
+</div>
+   <% if @scripts %>
     <% @scripts.each do |js| %>
         <script src="/js/<%= js %>"></script>
     <% end %>

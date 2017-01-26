@@ -10,16 +10,17 @@ function geocode(mapboxAccessToken, query){
 	});
 }
 
-
-$('#geo').on("click", function(event) {
-	console.log('gets here?');
-	$(this).prop('disabled', true);
-	$(this).trigger("geocode:get");
+$("#geo").on("click", function(event){
+    $(this).trigger("geocode:get")
+    if ($("#address").hasClass("geo-gray")){
+        $("#address").val("")
+    }
 	return false
 })
 
-$(document).on("geocode:get", function (event){
+$(document).on("geocode:get", function (event) {
 	if (navigator.geolocation) {
+        $("#address").toggleClass("geo-gray")
 		navigator.geolocation.getCurrentPosition(function(position) {
 			var locationMarker = null;
 			if (locationMarker){
@@ -27,7 +28,7 @@ $(document).on("geocode:get", function (event){
 		  		return;
 			}
 			// sets default position to your position
-			lat = position.coords["latitude"];
+            lat = position.coords["latitude"];
 			lng = position.coords["longitude"];	
 			geo = [lat, lng];
 			console.log(geo);
@@ -36,7 +37,8 @@ $(document).on("geocode:get", function (event){
 
 			var MAPBOX_TOKEN = 'pk.eyJ1IjoiZXJuaWVhdGx5ZCIsImEiOiJNcmFnemM0In0.gP2qLay9LMBD1mCyffesMw';
 			geocode( MAPBOX_TOKEN, [lng, lat] ).done( function(data){
-				$("#address").val( data.features[0].place_name );
+				$("#address").val( data.features[0].place_name )
+                $("#geo").prop("checked", true)
 				$(event.target).prop('disabled', false);
 			} );
 				
@@ -68,9 +70,10 @@ getUrlParameter = function getUrlParameter(sParam) {
 
 
 $(document).on("distance:display", function (event){
-	if (event && $(event.target).attr("data-id") && getUrlParameter('lat') && getUrlParameter('lng')) {
+    if (event && $(event.target).attr("data-id") && getUrlParameter('lat') && getUrlParameter('lng')) {
 
 		geo = [ parseFloat(getUrlParameter('lat')), parseFloat(getUrlParameter('lng')) ];
+        console.log("test: " + geo)
 		if (geo) {
 //			console.log(geo);
 			var from = geo;

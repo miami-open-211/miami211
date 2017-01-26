@@ -43,10 +43,11 @@ $(document).on("ready", function(){
                     return $(this).text() 
                 }).get()
                 
+                // Does this result have ALL checked categories?
                 function checkCategories(refine_by){
                     for (i = 0; i < refine_by.length; i++){
                         if ($.inArray(refine_by[i], categories) === -1){
-                            return false
+                            return false // If not, stop the function
                         }
                     }
                     return true

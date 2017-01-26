@@ -3,14 +3,14 @@
     <!-- Search form -->
     <% if @hide_search != true %>
         <form action="/org_search" method="get" class="form-inline">
-            <div class="form-group">
-                <!-- <label for="nav_search">I need...</label>-->
-                <input type="text" name="search_terms" placeholder="I need help with " class="form-control" id="nav_search">
-                near 
-                 <input type="text" name="address" id="address" placeholder="address" class="form-control">
-                 <input type="hidden" name="lat"><input type="hidden" name="lng">
-                 <button class="btn" id="geo"><i class="fa fa-lg fa-globe"></i></button>
-                <button type="submit" class="btn btn-primary">New Search</button>
+             <div class="form-group">
+                <input type="text" name="search_terms" placeholder="I need help with..." class="form-control" id="home_search">
+                <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions" id="geo" value="option1">
+                </label>
+                <input type="text" name="address" id="address" placeholder="near me (optional)" class="form-control geo-gray">
+                <input type="hidden" name="lat" val=""><input type="hidden" name="lng" val="-80.1919">
+                <button type="submit" id="submit-button" class="btn btn-primary">Search</button>
             </div>
         </form>
     <% end %>  

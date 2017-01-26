@@ -52,12 +52,12 @@ a
     }
 
 .ui-front /* Autocomplete */
-{
+    {
     background-color: #fff;
     border: 1px solid #d6d7d9;
     border-radius: .25rem;
     z-index: 2000 !important
-}
+    }
 
 /* NAVBAR ----------------------------- */
 
@@ -67,9 +67,9 @@ a
     border-bottom: 1px solid #d6d7d9;
     }
 
-#geo
+.geo-gray
     {
-    background-color: transparent
+    background-color: #f1f1f1
     }
 
 /* HOME ------------------------------- */
@@ -90,6 +90,11 @@ a
             transform: translate(-50%, -45%);    
     }
 
+#suggestions
+    {
+    padding: 2rem 0;
+    }
+
 /* SEARCH REFINE ---------------------- */
 
 #search-refine
@@ -105,7 +110,7 @@ a
     color: #212121
     }
 
-#refine-by-city, #refine-by-radius, #refine-by-service
+#refine-by-radius, #refine-by-service
     {
     color: #212121;
     padding: 1rem 0 0 1rem
@@ -118,11 +123,6 @@ a
         padding-top: 3rem
         }
     }
-
-#this-zip
-{
-    width: 5rem
-}
 
 
 /* SEARCH RESULTS --------------------- */
@@ -142,12 +142,7 @@ a
 
 .collapsed
     {
-    display: none
-    }
-
-.expanded
-    {
-    
+    display: none !important
     }
 
 .caret
@@ -174,7 +169,7 @@ a
 
 .category-count
     {
-    color: #aeb0b5   
+    color: #aeb0b5;  
     }
 
 .org-description
@@ -182,16 +177,25 @@ a
     margin-top: .5rem;
     }
 
+/* FOOTER ----------------------------- */
+
+#version 
+    {
+    color: #aeb0b5;
+    text-align: center
+    }
+
 /* MAP -------------------------------- */
 
-
-#details-pane {
+#details-pane 
+    {
     position: relative;
-}
+    }
 
-#search-map {
+#search-map 
+    {
     position: relative;
     top: 0;
     bottom: 0;
     width: 100%;
-}
+    }

@@ -11,7 +11,14 @@ use Rack::SslEnforcer if production?
 
 get "/" do
     @hide_search = true # Hide search field in navbar
-     @scripts = ["map_geo.js", "search_suggest.js"] 
+     @scripts = ["map_geo.js"] 
+    
+    # A/B testing for auto-suggest
+    @version = rand(0..1)
+    if @version == 0
+        @scripts << "search_suggest.js"
+    end
+    
     erb(:home)
 end
 
@@ -31,15 +38,22 @@ get "/org_search" do # GET: /org_search?search_terms
         end
     end
     
+#    Set a default downtown Miami address at Flagler & Miami Ave
+    if params[:address] != ""
+        @address = params[:address]
+    else
+        @address = "1 NE 1st Ave, Miami, Florida 33132, United States"
+    end
+
     # Run a keyword search and put the results in an array named @search, which we will later send to the view
-    @search = Ohanakapa.search("search", :keyword => params[:search_terms], :per_page => 100, :location => params[:address], :radius => 50)
+    @search = Ohanakapa.search("search", :keyword => params[:search_terms], :per_page => 100, :location => @address, :radius => 100)
     
     # Iterate through results, fetch each result by :id, and add :categories (this is a temporary measure until API is updated)
     def getServices(org)
         if settings.development?
             arr = ["Alpha", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf", "Hotel", "India"]
             org[:categories] = [arr[rand(0..2)], arr[rand(3..5)], arr[rand(6..8)]].sort
-        else # Use multiple API calls for production only
+        else # Fetch categories for production only (fewer API calls)
             find_by_id = Ohanakapa.location(org.id)
             if find_by_id.services[0] != nil
                 org[:categories] = find_by_id.services[0].categories.map do |x|
@@ -65,7 +79,7 @@ get "/org_search" do # GET: /org_search?search_terms
     # List all JS files to load on this page (stored in ./public/js/)
     # map_geo.js is being compiled through browserify and stored in bundle.js
     # which is being stored in the head.
-    @scripts = ["map.js", "map_geo.js", "refine_by_category.js", "refine_by_radius.js", "search_suggest.js"] 
+    @scripts = ["map.js", "map_geo.js", "refine_by_category.js", "refine_by_radius.js"] 
     
     def remove_escape_chars(search)
         search.each do |org|

@@ -2,14 +2,55 @@
     <div id="home-search-child">
         <form action="/org_search" method="get" class="form-inline">
             <div class="form-group">
-                <label for="home_search">I need help with</label>
-                <input type="text" name="search_terms" placeholder="keyword(s)" class="form-control" id="home_search">
-                near 
-                <input type="text" name="address" id="address" placeholder="address" class="form-control">
-                <input type="hidden" name="lat"><input type="hidden" name="lng">
-                <button class="btn" id="geo"><i class="fa fa-lg fa-globe"></i></button>
-                <button type="submit" class="btn btn-primary">Search</button>
+                <input type="text" name="search_terms" placeholder="I need help with..." class="form-control" id="home_search">
+                <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions" id="geo" value="option1">
+                </label>
+                <input type="text" name="address" id="address" placeholder="near me (optional)" class="form-control geo-gray">
+                <input type="hidden" name="lat" value="25.7713">
+                <input type="hidden" name="lng" value="-80.1919">
+                <button type="submit" id="submit-button" class="btn btn-primary">Search</button>
             </div>
+            <input type="reset" class="btn btn-link" value="Reset" onClick="window.location.reload()">
         </form>
+    </div>
+</div>
+<div class="container" id="suggestions">
+    <div class="col-md-3">
+        <h4>Government Aid</h4>
+        <ul class="list-unstyled">
+            <li><a href="/org_search?search_terms=health+insurance&address=1+NE-1st+Ave%2C+Miami%2C+Florida+33132%2C+United+States&lat=25.7713&lng=-80.1919">Health Insurance</a></li>
+            <li><a href="/org_search?search_terms=medicare&address=1+NE-1st+Ave%2C+Miami%2C+Florida+33132%2C+United+States&lat=25.7713&lng=-80.1919">Medicare</a></li>
+            <li><a href="/org_search?search_terms=sfmnp+food+vouchers+seniors&address=1+NE-1st+Ave%2C+Miami%2C+Florida+33132%2C+United+States&lat=25.7713&lng=-80.1919">SFMNP (Food vouchers for seniors)</a></li>
+            <li><a href="/org_search?search_terms=food+stamps+snap&address=1+NE-1st+Ave%2C+Miami%2C+Florida+33132%2C+United+States&lat=25.7713&lng=-80.1919">SNAP (Food Stamps)</a></li>
+            <li><a href="/org_search?search_terms=wic+women+infants+children&address=1+NE-1st+Ave%2C+Miami%2C+Florida+33132%2C+United+States&lat=25.7713&lng=-80.1919">WIC (Women, Infants, & Children)</a></li>
+        </ul>    
+    </div>
+    <div class="col-md-3">
+        <h4>Children & Families</h4>
+        <ul class="list-unstyled">
+            <li><a href="/org_search?search_terms=abuse+prevention&address=1+NE-1st+Ave%2C+Miami%2C+Florida+33132%2C+United+States&lat=25.7713&lng=-80.1919">Abuse Prevention</a></li>
+            <li><a href="/org_search?search_terms=childcare&address=1+NE-1st+Ave%2C+Miami%2C+Florida+33132%2C+United+States&lat=25.7713&lng=-80.1919">Childcare</a></li>
+            <li><a href="/org_search?search_terms=counseling&address=1+NE-1st+Ave%2C+Miami%2C+Florida+33132%2C+United+States&lat=25.7713&lng=-80.1919">Counseling</a></li>
+            <li><a href="/org_search?search_terms=mentoring+programs&address=1+NE-1st+Ave%2C+Miami%2C+Florida+33132%2C+United+States&lat=25.7713&lng=-80.1919">Mentoring Programs</a></li>
+            <li><a href="/org_search?search_terms=youth+development&address=1+NE-1st+Ave%2C+Miami%2C+Florida+33132%2C+United+States&lat=25.7713&lng=-80.1919">Youth Development</a></li>
+        </ul>    
+    </div>
+    <div class="col-md-3">
+        <h4>Emergency Services</h4>
+        <ul class="list-unstyled">
+            <li><a href="/org_search?search_terms=police&address=1+NE-1st+Ave%2C+Miami%2C+Florida+33132%2C+United+States&lat=25.7713&lng=-80.1919">Police</a></li>
+            <li><a href="/org_search?search_terms=fire+rescue&address=1+NE-1st+Ave%2C+Miami%2C+Florida+33132%2C+United+States&lat=25.7713&lng=-80.1919">Fire Rescue</a></li>
+            <li><a href="/org_search?search_terms=emergency+food&address=1+NE-1st+Ave%2C+Miami%2C+Florida+33132%2C+United+States&lat=25.7713&lng=-80.1919">Emergency Food</a></li>
+            <li><a href="/org_search?search_terms=emergency+shelter&address=1+NE-1st+Ave%2C+Miami%2C+Florida+33132%2C+United+States&lat=25.7713&lng=-80.1919">Emergency Shelter</a></li>
+            <li><a href="/org_search?search_terms=psychiatric+emergency&address=1+NE-1st+Ave%2C+Miami%2C+Florida+33132%2C+United+States&lat=25.7713&lng=-80.1919">Psychiatric Emergency</a></li>
+        </ul>    
+    </div>    
+    <div class="col-md-3">
+        <h4>Reporting</h4>
+        <ul class="list-unstyled">
+            <li><a href="/org_search?search_terms=domestic+violence&address=1+NE-1st+Ave%2C+Miami%2C+Florida+33132%2C+United+States&lat=25.7713&lng=-80.1919">Domestic Violence</a></li>
+            <li><a href="/org_search?search_terms=child+abuse&address=1+NE-1st+Ave%2C+Miami%2C+Florida+33132%2C+United+States&lat=25.7713&lng=-80.1919">Child Abuse</a></li>
+        </ul>    
     </div>
 </div>
