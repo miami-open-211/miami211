@@ -11,13 +11,17 @@ use Rack::SslEnforcer if production?
 
 get "/" do
     @hide_search = true # Hide search field in navbar
-     @scripts = ["map_geo.js"] 
+     @scripts = ["map_geo.js", "search_suggest.js"]
     
     # A/B testing for auto-suggest
-    @version = rand(0..1)
-    if @version == 0
-        @scripts << "search_suggest.js"
-    end
+#    @version = rand(0..1)
+#    if @version == 0
+#        @scripts << "search_suggest.js"
+#    end
+    
+    @categories = ["Food", "Housing/Shelter", "Material Goods", "Transportation", "Utilities", "Consumer Assistance and Protection", "Consumer Regulation", "Money Management", "Tax Organizations and Services", "Courts", "Criminal Correctional System", "Judicial Services", "Law Enforcement Agencies", "Law Enforcement Services", "Legal Assistance Modalities", "Legal Education/Information", "Legal Insurance", "Legal Services", "Legal Services Organizations", "Educational Institutions/Schools", "Educational Programs", "Educational Support Services", "Postsecondary Instructional Programs", "Environmental Protection and Improvement", "Public Health", "Public Safety", "Emergency Medical Care", "General Medical Care", "Health Screening/Diagnostic Services", "Health Supportive Services", "Human Reproduction", "Inpatient Health Facilities", "Medical Laboratories", "Outpatient Health Facilities", "Rehabilitation/Habilitation Services", "Specialized Treatment", "Specialty Medicine", "Employment", "Public Assistance Programs", "Social Insurance Programs", "Temporary Financial Assistance", "Death Certification/Burial Arrangements", "Domestic Animal Services", "Individual and Family Support Services", "Leisure Activities/Recreation", "Mutual Support", "Social Development and Enrichment", "Spiritual Enrichment", "Volunteer Development", "Volunteer Opportunities", "Counseling Approaches", "Counseling Settings", "Mental Health Care Facilities", "Mental Health Assessment and Treatment", "Mental Health Support Services", "Substance Abuse Services", "Arts and Culture", "Community Economic Development and Finance", "Community Facilities/Centers", "Community Groups and Government/Administrative Offices", "Community Planning and Public Works", "Community Recognition", "Disaster Services", "Donor Services", "Information Services", "International Affairs", "Military Service", "Occupational/Professional Associations", "Organizational Development and Management Delivery Methods", "Organizational Development and Management Services", "Political Organization and Participation", "Research", "Agencies/Organizations as Recipients", "Age Groups", "Benefits Recipients", "Caregivers", "Citizenship", "Disabilities and Health Conditions", "Educational Status", "Ethnic Groups/National Origin", "Experiencers of Paranormal/Extraterrestrial Events", "Families and Individuals Needing Support", "Family Relationships", "Income/Employment Status", "Living Situation/Housing Status", "Military Personnel/Contractors", "Occupations", "Offenders", "Organizational/Practitioner Perspectives", "Religious Groups/Communities", "Sex/Gender", "Sexual Orientation/Gender Identity", "Transients", "Urban/Rural Location", "Victims/Survivors", "Volunteers", "Topical Identifiers/Issues"]
+    
+    @version = 0
     
     erb(:home)
 end

@@ -16,196 +16,178 @@ red: #e31c3d; */
 
 /* GENERAL ---------------------------- */
 
-html
-    {   
+html {   
     font-size: 16px; /* (rem) */
-    }
+}
 
-body 
-    {
+body {
     color: #212121;    
     font-family: 'Roboto', sans-serif;
-    padding-top: 3.375rem; /* to clear navbar */
-    }
+/*    padding-top: 3.375rem;  to clear fixed navbar */
+}
 
-main
-    {
-    margin-top: 3.375rem
-    }
+main {
+/*    margin-top: 3.375rem*/
+}
 
-a
-    {
+a {
     color: #0071bc
-    }
+}
 
-.btn-primary
-    {
+.btn-primary {
     background-color: #0071bc;
     border: 1px solid #0071bc;
     color: #fff
-    }
+}
 
-.container-fluid
-    {
+.container-fluid {
     margin: 0;
     padding: 0
-    }
+}
 
-.ui-front /* Autocomplete */
-    {
+.ui-front {  /* Autocomplete */ 
     background-color: #fff;
     border: 1px solid #d6d7d9;
     border-radius: .25rem;
     z-index: 2000 !important
-    }
+}
 
 /* NAVBAR ----------------------------- */
 
-.navbar
-    {
+.navbar {
     background-color: #fff;
     border-bottom: 1px solid #d6d7d9;
-    }
+          display: block!important;
+}
 
-#my-address 
-    {
-    padding-left: 1rem
-    }
+#submit-button {
+    margin: 0 1rem 0 0
+}
 
-#my-address a
-    {
-    padding-left: 1rem
-    }
+.navbar-collapse.collapse {
+
+}
+
+#my-address {
+    margin: 0 1rem 0 0
+}
+
 /* HOME ------------------------------- */
 
-#home-search
-    {
+#home-search {
     background-color: #f1f1f1;
-    height: 200px;
+    height: 18rem;
     text-align: center
-    }
+}
 
-#home-search-child
-    {
+#home-search-child {
     left: 50%;
+    padding: 1rem;
     position: relative;
     top: 45%;
     -webkit-transform: translate(-50%, -45%);
-            transform: translate(-50%, -45%);    
-    }
+    transform: translate(-50%, -45%)  
+}
 
-#suggestions
-    {
-    padding: 2rem 0;
-    }
+#search-input {
+    margin-: 1rem 0
+}
 
-.geo-gray
-    {
+#suggestions { /* autosuggestions */
+    padding: 2rem 0
+}
+
+#address-input {
+/*    margin: 1rem 0*/
+}
+
+.geo-gray {
     background-color: #f1f1f1
-    }
+}
 
 /* SEARCH REFINE ---------------------- */
 
-#search-refine
-    {
+#search-refine {
     color: #aeb0b5;
-    padding: 1rem 1rem 0;
-    }
+    padding: 1rem 0 0 1rem;
+}
 
-#search-refine .btn-primary
-    {
-    background-color: #d6d7d9;
-    border: 1px solid #d6d7d9;
-    color: #212121
-    }
-
-#refine-by-radius, #refine-by-service
-    {
+#refine-by-radius, #refine-by-category {
     color: #212121;
-    padding: 1rem 0 0 1rem
-    }
-
-    @media (max-width: 480px){
-        
-        #refine-by-radius    
-        {
-        padding-top: 3rem
-        }
-    }
-
+    padding: 1rem 0 0 0
+}
+   
 
 /* SEARCH RESULTS --------------------- */
 
-#search-results
-    {
-    padding: 1rem 1rem 0;
-    }
+#search-results {
+    padding: 1rem 0 0 1rem;
+}
 
 
-.each-result
-    {
+.each-result {
     border-bottom: 1px solid #d6d7d9;
     padding: 1rem 0;
     -webkit-transition: .5s;
     transition: .5s
-    }
+}
 
-.collapsed
-    {
+.collapsed {
     display: none !important
-    }
+}
 
-.caret
-    {
+.caret {
     color: #aeb0b5;
     text-align: right
-    }
+}
 
-.org-name
-    {
+.org-name {
     font-weight: 700
-    }
+}
 
-.org-address, .org-phone a
-    {
+.org-address, .org-phone a {
     color: #2e8540;
-    }
+}
 
-.org-categories ul
-    {
+.org-categories ul {
     margin: .5rem 0 0 0;
     padding-left: 1rem;
-    }
+}
 
-.category-count
-    {
+.category-count {
     color: #d6d7d9;  
-    }
+}
 
-.org-description
-    {
+.org-description {
     margin-top: .5rem;
-    }
+}
 
 /* FOOTER ----------------------------- */
 
-#version 
-    {
+#version {
     color: #aeb0b5;
     text-align: center
-    }
+}
 
 /* MAP -------------------------------- */
 
-#details-pane 
-    {
+#details-pane {
     position: relative;
-    }
+}
 
-#search-map 
-    {
+#search-map {
     position: relative;
     top: 0;
     bottom: 0;
     width: 100%;
+}
+
+/* RESPONSIVE ------------------------- */
+
+@media (max-width: 576px){
+   
+    #refine-by-category {
+        display: none
     }
+    
+}
