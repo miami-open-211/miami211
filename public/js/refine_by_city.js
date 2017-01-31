@@ -36,7 +36,7 @@ $(document).on("ready", function(){
             if (refine_by.length === 0){
                 $(this).show();
                 $(this).trigger("marker:show")
-                $(this).trigger("distance:display");
+                $(this).trigger("distance:display")
                 count++
             } else if (($.inArray(this_city, refine_by) === -1) && ($.inArray(this_zip, refine_by) === -1)){
                 $(this).hide();

@@ -76,25 +76,29 @@ a {
 
 #home-search {
     background-color: #f1f1f1;
-    height: 18rem;
+    padding: 3rem 1rem;
     text-align: center
 }
 
-#home-search-child {
-    left: 50%;
-    padding: 1rem;
-    position: relative;
-    top: 45%;
-    -webkit-transform: translate(-50%, -45%);
-    transform: translate(-50%, -45%)  
+#home-search h2 {
+    margin-bottom: 2rem
 }
 
+.input-group-addon {
+    background-color: transparent;
+    border: none
+}
 #search-input {
-    margin-: 1rem 0
+/*    margin: 1rem 0*/
 }
 
 #suggestions { /* autosuggestions */
-    padding: 2rem 0
+    padding: 3rem 0
+}
+
+#suggestions h3 {
+    margin-bottom: 2rem;
+    text-align: center
 }
 
 #address-input {

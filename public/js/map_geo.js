@@ -10,16 +10,28 @@ function geocode(mapboxAccessToken, query){
 	});
 }
 
-$("#geo").on("click", function(event){
+// Listen for "Near this location" to be selected
+$("#address-input").on("click", function(event){
     $(this).trigger("geocode:get")
-    if ($("#address-input").hasClass("geo-gray")){
-        $("#address-input").val("")
-    }
+    $("#geo").prop("checked", true)
 	return false
 })
 
+$("#geo").change(function(){
+    $(this).trigger("geocode:get")
+
+    return false
+})
+
+$("#downtown").change(function(){
+    $("#address-input").toggleClass("geo-gray")
+})
+
 $(document).on("geocode:get", function (event) {
-	if (navigator.geolocation) {
+    if ($("#address-input").hasClass("geo-gray")){
+        $("#address-input").val("")
+    }
+    if (navigator.geolocation) {
         $("#address-input").toggleClass("geo-gray")
 		navigator.geolocation.getCurrentPosition(function(position) {
 			var locationMarker = null;
@@ -38,7 +50,7 @@ $(document).on("geocode:get", function (event) {
 			var MAPBOX_TOKEN = 'pk.eyJ1IjoiZXJuaWVhdGx5ZCIsImEiOiJNcmFnemM0In0.gP2qLay9LMBD1mCyffesMw';
 			geocode( MAPBOX_TOKEN, [lng, lat] ).done( function(data){
 				$("#address-input").val( data.features[0].place_name )
-                $("#geo").prop("checked", true)
+//               
 				$(event.target).prop('disabled', false);
 			} );
 				
