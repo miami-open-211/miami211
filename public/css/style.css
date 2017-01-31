@@ -194,4 +194,8 @@ a {
         display: none
     }
     
+    #details-pane {
+        display: none
+    }
+    
 }
