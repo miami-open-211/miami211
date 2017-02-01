@@ -18,8 +18,7 @@ $("#address-input").on("click", function(event){
 })
 
 $("#geo").change(function(){
-    $(this).trigger("geocode:get")
-
+    $(this).delay(3000).trigger("geocode:get")
     return false
 })
 
@@ -99,7 +98,7 @@ $(document).on("distance:display", function (event){
 				parseFloat($(event.target).attr("data-longitude"))];
 
 			var distance = turf.distance(from, to, "miles");
-			$(event.target).find('.distance').text( distance.toFixed(2) + ' miles' );
+			$(event.target).find('.distance').text( '(' + distance.toFixed(2) + ' miles)' );
             $(event.target).attr("data-distance", distance.toFixed(2));
 		}
 

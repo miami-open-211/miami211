@@ -84,12 +84,13 @@ a {
     margin-bottom: 2rem
 }
 
+#home-search .form-check, #home-search .form-group {
+    text-align: left
+}
+
 .input-group-addon {
     background-color: transparent;
     border: none
-}
-#search-input {
-/*    margin: 1rem 0*/
 }
 
 #suggestions { /* autosuggestions */
@@ -121,6 +122,9 @@ a {
     padding: 1rem 0 0 0
 }
    
+#change-address {
+    margin-left: .5rem
+}
 
 /* SEARCH RESULTS --------------------- */
 
@@ -188,8 +192,13 @@ a {
 
 /* RESPONSIVE ------------------------- */
 
-@media (max-width: 576px){
+@media (max-width: 750px){
    
+    #search-refine {
+        border-bottom: 1px solid #d6d7d9;
+        padding-bottom: 1rem
+    }
+    
     #refine-by-category {
         display: none
     }

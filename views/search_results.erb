@@ -2,23 +2,28 @@
 <div class="col-md-2" id="search-refine">
     <h3>Refine by</h3>
     <div id="refine-by-radius">
-        <h4>Distance</h4>   
-        <div class="form-inline">
-            <div class="form-group">
-                <label for="radius">Within</label>
-                <select class="form-control" id="radius" placeholder="any">
-                    <option value="60">60 miles</option>
-                    <option value="30">30 miles</option>
-                    <option value="10">10 miles</option>
-                    <option value="5">5 miles</option>
-                    <option value="2">2 miles</option>
-                </select>
+        <h4>Distance</h4> 
+        <% if @show_distance %>  
+            <div class="form-inline">
+                <div class="form-group">
+                    <label for="radius">Within</label>
+                    <select class="form-control" id="radius" placeholder="any">
+                        <option value="60">60 miles</option>
+                        <option value="30">30 miles</option>
+                        <option value="10">10 miles</option>
+                        <option value="5">5 miles</option>
+                        <option value="2">2 miles</option>
+                    </select>
+                </div>
             </div>
-        </div>
+        <% else %>
+            Anywhere in Miami-Dade County
+            <span id="change-address"><a href="/">Change</a></span>
+        <% end %>
     </div>
 
     <div id="refine-by-category">
-        <h4>Category</h4>
+        <h4>Service(s)</h4>
         <% @refine_by.each do |category_name, category_count| %>
             <div class="form-check">
                 <label class="form-check-label">
@@ -54,8 +59,9 @@
                 <% end %>
                 <%= result.address.city %>, 
                 <%= result.address.state_province %> <%= result.address.postal_code %>
-                (<span class="distance">
-                </span>)
+                <% if @show_distance %>
+                    <span class="distance"></span>
+                <% end %>
             </div>
             <div class="org-phone">
                 <% if result.phones[0] != nil %>
