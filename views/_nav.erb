@@ -11,7 +11,7 @@
                 <button type="submit" id="submit-button" class="btn btn-primary">Search</button>
             </span>
             <span class="navbar-text">
-                <% if @show_distance %>
+                <% if @show_distances %>
                     <span  id="my-address">
                         Your location: <%= @address.gsub("Florida", "FL").gsub(", United States", "") %>
                     </span>    

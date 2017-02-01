@@ -3,7 +3,7 @@
     <h3>Refine by</h3>
     <div id="refine-by-radius">
         <h4>Distance</h4> 
-        <% if @show_distance %>  
+        <% if @show_distances %>  
             <div class="form-inline">
                 <div class="form-group">
                     <label for="radius">Within</label>
@@ -59,7 +59,7 @@
                 <% end %>
                 <%= result.address.city %>, 
                 <%= result.address.state_province %> <%= result.address.postal_code %>
-                <% if @show_distance %>
+                <% if @show_distances %>
                     <span class="distance"></span>
                 <% end %>
             </div>
