@@ -39,7 +39,7 @@
     <div class="col-md-3">
         <ul class="list-group">
             <% arr.each do |x| %>
-            <li class="list-group-item"><a href="/org_search?search_terms=<%= x.downcase.gsub(" ", "+") %>&address=1+NE+1st+Ave%2C+Miami%2C+Florida+33132%2C+United+States&lat=25.7713&lng=-80.1919"><%= x %></a></li>
+            <li class="list-group-item"><a href="/org_search?search_terms=<%= x.downcase.gsub(" ", "+") %>&address=&lat=&lng="><%= x %></a></li>
             <% end %>
         </ul>
     </div>
