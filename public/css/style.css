@@ -52,6 +52,10 @@ a {
     z-index: 2000 !important
 }
 
+.form-control {
+    border-color: #aeb0b5 !important
+}
+
 /* NAVBAR ----------------------------- */
 
 .navbar {
@@ -88,6 +92,11 @@ a {
     text-align: left
 }
 
+#home-search.form-control {
+    box-shadow: 0 0 2rem #eee
+}
+
+
 .input-group-addon {
     background-color: transparent;
     border: none
@@ -102,12 +111,8 @@ a {
     text-align: center
 }
 
-#address-input {
-/*    margin: 1rem 0*/
-}
-
 .geo-gray {
-    background-color: #f1f1f1
+    background-color: #f1f1f1;
 }
 
 #find-me {
@@ -115,14 +120,16 @@ a {
 }
 
 #basic {
-    border: 1px solid #aeb0b5;
+    background-color: #f1f1f1;
+    border: 1px solid #d6d7d9;
     border-radius: .25rem;
     margin-bottom: 1rem;
     padding: 1rem
 }
 
 #advanced {
-    border: 1px solid #aeb0b5;
+    background-color: #f1f1f1;
+    border: 1px solid #d6d7d9;
     border-radius: .25rem;
     margin-bottom: 1rem;
     padding: 1rem

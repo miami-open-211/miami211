@@ -22,7 +22,7 @@ $("#geo").change(function(){
 
 $("#find-me").on("click", function(event){
     $("#geo").prop("checked", true)
-    if ($("#address-input").hasClass("geo-gray") === true) {
+    if ($("#address-input").hasClass("geo-gray")) {
         $("#address-input").toggleClass("geo-gray")
     }
     $(this).trigger("geocode:get")
