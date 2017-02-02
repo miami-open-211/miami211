@@ -12,14 +12,20 @@ function geocode(mapboxAccessToken, query){
 
 // Listen for "Near this location" to be selected
 $("#address-input").on("click", function(event){
-    $(this).trigger("geocode:get")
     $("#geo").prop("checked", true)
-	return false
+//	return false
 })
 
 $("#geo").change(function(){
-    $(this).delay(3000).trigger("geocode:get")
-    return false
+    $("#address-input").toggleClass("geo-gray")
+})
+
+$("#find-me").on("click", function(event){
+    $("#geo").prop("checked", true)
+    if ($("#address-input").hasClass("geo-gray") === true) {
+        $("#address-input").toggleClass("geo-gray")
+    }
+    $(this).trigger("geocode:get")
 })
 
 $("#downtown").change(function(){
@@ -31,7 +37,7 @@ $(document).on("geocode:get", function (event) {
         $("#address-input").val("")
     }
     if (navigator.geolocation) {
-        $("#address-input").toggleClass("geo-gray")
+//        $("#address-input").toggleClass("geo-gray")
 		navigator.geolocation.getCurrentPosition(function(position) {
 			var locationMarker = null;
 			if (locationMarker){

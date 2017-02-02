@@ -5,24 +5,27 @@
         <div class="row">
             <form action="/org_search" method="get" >
 
-                <div class="form-group text-md-left">
+                <div class="form-group text-md-left" id="basic">
                     <label for="">I need help with:</label>
                     <input type="text" name="search_terms" class="form-control" id="search-input">
+                    <p class="form-text text-muted">e.g. "food", "childcare"</p>
                 </div>
-                <div class="form-check text-md-left">
-                    <label class="form-check-label ">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="downtown" value="option1" checked>
-                        Anywhere in Miami-Dade County (default)
-                    </label>
+                <div id="advanced">   
+                    <div class="form-check text-md-left">
+                        <label class="form-check-label ">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="downtown" value="option1" checked>
+                            Anywhere in Miami-Dade County (default)
+                        </label>
+                    </div>
+                    <div class="form-check text-md-left">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="geo" value="option2">
+                            Near this address:
+                        </label>
+                        <input type="text" name="address" id="address-input" class="form-control geo-gray">
+                        <p class="form-text" id="find-me">Use my current location</p>
+                    </div>
                 </div>
-                <div class="form-check text-md-left">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="geo" value="option2">
-                        Near this address:
-                    </label>
-                    <input type="text" name="address" id="address-input" class="form-control geo-gray">
-                </div>
-
                 <input type="hidden" name="lat">
                 <input type="hidden" name="lng">
                 <button type="submit" id="submit-button" class="btn btn-primary">Search</button>

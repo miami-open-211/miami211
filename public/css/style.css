@@ -110,6 +110,24 @@ a {
     background-color: #f1f1f1
 }
 
+#find-me {
+    color: #0071bc !important
+}
+
+#basic {
+    border: 1px solid #aeb0b5;
+    border-radius: .25rem;
+    margin-bottom: 1rem;
+    padding: 1rem
+}
+
+#advanced {
+    border: 1px solid #aeb0b5;
+    border-radius: .25rem;
+    margin-bottom: 1rem;
+    padding: 1rem
+}
+
 /* SEARCH REFINE ---------------------- */
 
 #search-refine {
@@ -193,6 +211,10 @@ a {
 /* RESPONSIVE ------------------------- */
 
 @media (max-width: 750px){
+    
+    #home-search h2 {
+        font-size: 1.5rem
+    }
    
     #search-refine {
         border-bottom: 1px solid #d6d7d9;
