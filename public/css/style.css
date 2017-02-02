@@ -123,15 +123,14 @@ a {
     background-color: #f1f1f1;
     border: 1px solid #d6d7d9;
     border-radius: .25rem;
-    margin-bottom: 1rem;
     padding: 1rem
 }
 
 #advanced {
     background-color: #f1f1f1;
-    border: 1px solid #d6d7d9;
+/*    border: 1px solid #d6d7d9;*/
     border-radius: .25rem;
-    margin-bottom: 1rem;
+/*    margin-bottom: 1rem;*/
     padding: 1rem
 }
 
@@ -218,9 +217,11 @@ a {
 /* RESPONSIVE ------------------------- */
 
 @media (max-width: 750px){
-    
+    #home-search {
+        padding: 1rem 1rem 3rem
+    }
     #home-search h2 {
-        font-size: 1.5rem
+        font-size: 1.25rem
     }
    
     #search-refine {
@@ -235,5 +236,4 @@ a {
     #details-pane {
         display: none
     }
-    
 }
