@@ -1,14 +1,50 @@
-<div id="home-search">
-    <div id="home-search-child">
-        <form action="/org_search" method="get" class="form-inline">
-            <div class="form-group">
-                <label for="home_search">I need help with...</label>
-                <input type="text" name="search_terms" placeholder="" class="form-control" id="home_search">
-                near 
-                <input type="text" name="address" id="address" placeholder="Address" class="form-control">
-                <button class="btn" id="geo"><i class="fa fa-lg fa-globe"></i></button>
-                <button type="submit" class="btn btn-primary">Search</button>
-            </div>
-        </form>
+<div class="row" id="home-search">
+    <h2>Find Health and Human Services in Miami-Dade County</h2> 
+    <div class="col-md-6 offset-md-3">
+
+        <div class="row">
+            <form action="/org_search" method="get" >
+
+                <div class="form-group text-md-left" id="basic">
+                    <label for="">I need help with:</label>
+                    <input type="text" name="search_terms" class="form-control" id="search-input">
+                    <p class="form-text text-muted">e.g. "food", "childcare"</p>
+                </div>
+                <div id="advanced">   
+                    <div class="form-check text-md-left">
+                        <label class="form-check-label ">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="downtown" value="option1" checked>
+                            Anywhere in Miami-Dade County (default)
+                        </label>
+                    </div>
+                    <div class="form-check text-md-left">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="geo" value="option2">
+                            Near this address:
+                        </label>
+                        <input type="text" name="address" id="address-input" class="form-control geo-gray">
+                        <p class="form-text" id="find-me">Use my current location</p>
+                    </div>
+                </div>
+                <input type="hidden" name="lat">
+                <input type="hidden" name="lng">
+                <button type="submit" id="submit-button" class="btn btn-primary">Search</button>
+                <input type="reset" class="btn btn-link" value="Reset" onClick="window.location.reload()">
+            </form>
+
+        </div>
     </div>
+</div>
+
+<div class="container" id="suggestions">
+    <h3>Browse by Category</h3>
+    <% @categories.sort.each_slice(25) do |arr| %>
+    <div class="col-md-3">
+        <ul class="list-group">
+            <% arr.each do |x| %>
+            <li class="list-group-item"><a href="/org_search?search_terms=<%= x.downcase.gsub(" ", "+") %>&address=&lat=&lng="><%= x %></a></li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
 </div>

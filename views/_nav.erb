@@ -1,16 +1,23 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default">
     <a class="navbar-brand" href="/">Miami 211</a>
     <!-- Search form -->
     <% if @hide_search != true %>
         <form action="/org_search" method="get" class="form-inline">
-            <div class="form-group">
-                <!-- <label for="nav_search">I need...</label>-->
-                <input type="text" name="search_terms" placeholder="I need help with..." class="form-control" id="nav_search">
-                near 
-                 <input type="text" name="address" id="address" placeholder="Address" class="form-control">
-                 <button class="btn" id="geo"><i class="fa fa-lg fa-globe"></i></button>
-                <button type="submit" class="btn btn-primary">New Search</button>
-            </div>
+             <span class="form-group">
+                <input type="text" name="search_terms" placeholder="I need help with..." class="form-control" id="search-input">
+                <input type="hidden" name="address" value="<%= @address %>">
+                <input type="hidden" name="lat">
+                <input type="hidden" name="lng">
+                <button type="submit" id="submit-button" class="btn btn-primary">Search</button>
+            </span>
+            <span class="navbar-text">
+                <% if @show_distances %>
+                    <span  id="my-address">
+                        Your location: <%= @address.gsub("Florida", "FL").gsub(", United States", "") %>
+                    </span>    
+                    <a href="/">Change</a>
+                <% end %>
+            </span>
         </form>
-    <% end %>  
+    <% end %> 
 </nav>

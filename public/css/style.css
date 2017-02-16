@@ -16,165 +16,192 @@ red: #e31c3d; */
 
 /* GENERAL ---------------------------- */
 
-html
-    {   
+html {   
     font-size: 16px; /* (rem) */
-    }
+}
 
-body 
-    {
+body {
     color: #212121;    
     font-family: 'Roboto', sans-serif;
-    padding-top: 3.375rem; /* to clear navbar */
-    }
+/*    padding-top: 3.375rem;  to clear fixed navbar */
+}
 
-main
-    {
-    margin-top: 3.375rem
-    }
+main {
+/*    margin-top: 3.375rem*/
+}
 
-a
-    {
+a {
     color: #0071bc
-    }
+}
 
-.btn-primary
-    {
+.btn-primary {
     background-color: #0071bc;
     border: 1px solid #0071bc;
     color: #fff
-    }
+}
 
-.container-fluid
-    {
+.container-fluid {
     margin: 0;
     padding: 0
-    }
+}
 
-.ui-front /* Autocomplete */
-{
+.ui-front {  /* Autocomplete */ 
     background-color: #fff;
     border: 1px solid #d6d7d9;
     border-radius: .25rem;
     z-index: 2000 !important
 }
 
+.form-control {
+    border-color: #aeb0b5 !important
+}
+
 /* NAVBAR ----------------------------- */
 
-.navbar
-    {
+.navbar {
     background-color: #fff;
     border-bottom: 1px solid #d6d7d9;
-    }
+          display: block!important;
+}
 
+#submit-button {
+    margin: 0 1rem 0 0
+}
+
+.navbar-collapse.collapse {
+
+}
+
+#my-address {
+    margin: 0 1rem 0 0
+}
 
 /* HOME ------------------------------- */
 
-#home-search
-    {
+#home-search {
     background-color: #f1f1f1;
-    height: 200px;
+    padding: 3rem 1rem;
     text-align: center
-    }
+}
 
-#home-search-child
-    {
-    left: 50%;
-    position: relative;
-    top: 45%;
-    -webkit-transform: translate(-50%, -45%);
-            transform: translate(-50%, -45%);    
-    }
+#home-search h2 {
+    margin-bottom: 2rem
+}
 
-/* SEARCH REFINE ---------------------- */
+#home-search .form-check, #home-search .form-group {
+    text-align: left
+}
 
-#search-refine
-    {
-    color: #aeb0b5;
-    padding: 1rem 1rem 0;
-    }
-
-#search-refine .btn-primary
-    {
-    background-color: #d6d7d9;
-    border: 1px solid #d6d7d9;
-    color: #212121
-    }
-
-#refine-by-city, #refine-by-radius
-    {
-    color: #212121;
-    padding: 1rem 0 0 1rem
-    }
-
-    @media (max-width: 480px){
-        
-        #refine-by-city    
-        {
-        padding-top: 3rem
-        }
-    }
-
-#this-zip
-{
-    width: 5rem
+#home-search.form-control {
+    box-shadow: 0 0 2rem #eee
 }
 
 
+.input-group-addon {
+    background-color: transparent;
+    border: none
+}
+
+#suggestions { /* autosuggestions */
+    padding: 3rem 0
+}
+
+#suggestions h3 {
+    margin-bottom: 2rem;
+    text-align: center
+}
+
+.geo-gray {
+    background-color: #f1f1f1;
+}
+
+#find-me {
+    color: #0071bc !important
+}
+
+#basic {
+    background-color: #f1f1f1;
+    border: 1px solid #d6d7d9;
+    border-radius: .25rem;
+    padding: 1rem
+}
+
+#advanced {
+    background-color: #f1f1f1;
+/*    border: 1px solid #d6d7d9;*/
+    border-radius: .25rem;
+/*    margin-bottom: 1rem;*/
+    padding: 1rem
+}
+
+/* SEARCH REFINE ---------------------- */
+
+#search-refine {
+    color: #aeb0b5;
+    padding: 1rem 0 0 1rem;
+}
+
+#refine-by-radius, #refine-by-category {
+    color: #212121;
+    padding: 1rem 0 0 0
+}
+   
+#change-address {
+    margin-left: .5rem
+}
+
 /* SEARCH RESULTS --------------------- */
 
-#search-results
-    {
-    padding: 1rem 1rem 0;
-    }
+#search-results {
+    padding: 1rem 0 0 1rem;
+}
 
-.each-result
-    {
+
+.each-result {
     border-bottom: 1px solid #d6d7d9;
     padding: 1rem 0;
     -webkit-transition: .5s;
     transition: .5s
-    }
+}
 
-.collapsed
-    {
-    display: none
-    }
+.collapsed {
+    display: none !important
+}
 
-.expanded
-    {
-    
-    }
-
-.caret
-    {
+.caret {
     color: #aeb0b5;
     text-align: right
-    }
+}
 
-.org-name
-    {
+.org-name {
     font-weight: 700
-    }
+}
 
-.org-address, .org-phone a
-    {
+.org-address, .org-phone a {
     color: #2e8540;
-    }
+}
 
-.org-categories ul
-    {
+.org-categories ul {
     margin: .5rem 0 0 0;
     padding-left: 1rem;
-    }
+}
 
-.org-description
-    {
+.category-count {
+    color: #d6d7d9;  
+}
+
+.org-description {
     margin-top: .5rem;
-    }
+}
+
+/* FOOTER ----------------------------- */
+
+#version {
+    color: #aeb0b5;
+    text-align: center
+}
 
 /* MAP -------------------------------- */
-
 
 #details-pane {
     position: relative;
@@ -185,4 +212,28 @@ a
     top: 0;
     bottom: 0;
     width: 100%;
+}
+
+/* RESPONSIVE ------------------------- */
+
+@media (max-width: 750px){
+    #home-search {
+        padding: 1rem 1rem 3rem
+    }
+    #home-search h2 {
+        font-size: 1.25rem
+    }
+   
+    #search-refine {
+        border-bottom: 1px solid #d6d7d9;
+        padding-bottom: 1rem
+    }
+    
+    #refine-by-category {
+        display: none
+    }
+    
+    #details-pane {
+        display: none
+    }
 }

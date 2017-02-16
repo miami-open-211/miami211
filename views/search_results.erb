@@ -1,36 +1,38 @@
 <!-- First column -->
-<div class="col-md-2" id="search-refine">
+<div class="col-md-3" id="search-refine">
     <h3>Refine by</h3>
-    <div id="refine-by-city">
-        <h4>City</h4>
-        <% @refine_by["city"].each do |x_city| %>
+    <div id="refine-by-radius">
+        <h4>Distance</h4> 
+        <% if @show_distances %>  
+            <div class="form-inline">
+                <div class="form-group">
+                    <label for="radius">Within</label>
+                    <select class="form-control" id="radius" placeholder="any">
+                        <option value="60">60 miles</option>
+                        <option value="30">30 miles</option>
+                        <option value="10">10 miles</option>
+                        <option value="5">5 miles</option>
+                        <option value="2">2 miles</option>
+                    </select>
+                </div>
+            </div>
+        <% else %>
+            Anywhere in Miami-Dade County
+            <span id="change-address"><a href="/">Change</a></span>
+        <% end %>
+    </div>
+
+    <div id="refine-by-category">
+        <h4>Service(s)</h4>
+        <% @refine_by.each do |category_name, category_count| %>
             <div class="form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" value="<%= x_city %>">
-                    <%= x_city %>
+                    <input class="form-check-input" type="checkbox" value="<%= category_name %>">
+                    <%= category_name %> <span class="category-count">(<%= category_count %>)</span>
                 </label>
             </div>
         <% end %>
     </div>
-    
-    <div id="refine-by-radius">
-        <h4>Distance</h4>
-        
-        <div class="form-inline">
-            <div class="form-group">
-                <label for="radius">Within</label>
-                <select class="form-control" id="radius" placeholder="any">
-                    <option value="100">100 miles</option>
-                    <option value="50">50 miles</option>
-                    <option value="25">25 miles</option>
-                    <option value="10">10 miles</option>
-                    <option value="5">5 miles</option>
-                    <option value="2">2 miles</option>
-                </select>
-            </div>
-        </div> 
-    </div>
-    
 </div>
 
 <!-- Second column -->
@@ -57,10 +59,10 @@
                 <% end %>
                 <%= result.address.city %>, 
                 <%= result.address.state_province %> <%= result.address.postal_code %>
-                (<span class="distance">
-                </span>)
+                <% if @show_distances %>
+                    <span class="distance"></span>
+                <% end %>
             </div>
-           
             <div class="org-phone">
                 <% if result.phones[0] != nil %>
                     <a href="tel:+1-<%= result.phones[0].number %>">
@@ -72,7 +74,7 @@
                 <% if result.categories %>
                     <ul class="">
                         <% result.categories.each do |category| %>
-                            <li><%= category %></li>
+                            <li class="category"><%= category %></li>
                         <% end %>
                     </ul>
                 <% end %>
@@ -91,7 +93,7 @@
 </div>
 
 <!-- Third column -->
-<div class="col-md-6" id="details-pane">
+<div class="col-md-5" id="details-pane">
     <div id="search-map">
     </div>
 </div>

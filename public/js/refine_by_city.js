@@ -10,7 +10,7 @@ $(document).on("ready", function(){
         $(".form-check-input").attr("checked", false)
     }
     
-    // When a 'Refine by' box is checked...
+    // When a 'Refine by City' box is checked...
     $(".form-check-input").click(function(){ 
         addRefine($(this).val())
         showRefined()
@@ -36,7 +36,7 @@ $(document).on("ready", function(){
             if (refine_by.length === 0){
                 $(this).show();
                 $(this).trigger("marker:show")
-                $(this).trigger("distance:display");
+                $(this).trigger("distance:display")
                 count++
             } else if (($.inArray(this_city, refine_by) === -1) && ($.inArray(this_zip, refine_by) === -1)){
                 $(this).hide();
