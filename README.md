@@ -1,16 +1,18 @@
-[![Code Climate](https://codeclimate.com/github/davidjamesknight/miami211/badges/gpa.svg)](https://codeclimate.com/github/davidjamesknight/miami211) [![Test Coverage](https://codeclimate.com/github/davidjamesknight/miami211/badges/coverage.svg)](https://codeclimate.com/github/davidjamesknight/miami211/coverage)
+[![Code Climate](https://codeclimate.com/github/Code-for-Miami/miami211/badges/gpa.svg)](https://codeclimate.com/github/Code-for-Miami/miami211) [![Test Coverage](https://codeclimate.com/github/Code-for-Miami/miami211/badges/coverage.svg)](https://codeclimate.com/github/Code-for-Miami/miami211/coverage)
 
-#Miami 211 Rebuild#
+# Miami 211 Rebuild
 
-A Sinatra app for the [Ohana API][]
+A simple front-end for a [Ohana API]:https://github.com/codeforamerica/ohana-api project. Produced for the Miami 211 project. 
 
-[Ohana API]:https://github.com/codeforamerica/ohana-api
 
-##Under the hood
+## Under the hood
 * Ruby (tested up to v2.3.0)
 * Sinatra
 * Ohanakapa
 * jQuery
+* leaflet.js
+* Mapbox georeference API
+* Hosted on Heroku
 
 ##Quick Start
 ###Initial setup
