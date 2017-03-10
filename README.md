@@ -6,7 +6,7 @@ A simple front-end for a [Ohana API](https://github.com/codeforamerica/ohana-api
 
 ### Who is this made by?
 
-This project was originally developed by Ernie Hsiung and David James Knight. See the full [contributors list](https://github.com/Code-for-Miami/miami211/graphs/contributors).
+This project was originally developed by Ernie Hsiung and [David James Knight](https://github.com/davidjamesknight). See the full [contributors list](https://github.com/Code-for-Miami/miami211/graphs/contributors).
 
 ### Who is using this platform?
 
