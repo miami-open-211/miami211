@@ -2,17 +2,19 @@
 
 # Miami 211 Rebuild
 
-A simple front-end for a [Ohana API]:https://github.com/codeforamerica/ohana-api project. Produced for the Miami 211 project. 
+A simple front-end for a [Ohana API](https://github.com/codeforamerica/ohana-api), originally produced for the Miami 211 project. 
+
+### Who is this made by?
+
+This project was originally developed by Ernie Hsiung and David James Knight. See the full [contributors list](https://github.com/Code-for-Miami/miami211/graphs/contributors).
+
+### Who is using this platform?
+
+- [Prototype](https://mia211.herokuapp.com/) for Jewish Health Services
 
 
 ## Under the hood
-* Ruby (tested up to v2.3.0)
-* Sinatra
-* Ohanakapa
-* jQuery
-* leaflet.js
-* Mapbox georeference API
-* Hosted on Heroku
+While we used Ruby (tested up to v2.3.0) and Sinatra to stand this up, so to speak, much of the leg work is HTML, CSS and Javascript (jQuery, leaflet.js, Mapbox georeference APIs). Ohana API has a ruby gem called Ohanakapa that we used for API access; there is no local data storage being used in this prototype.
 
 ##Quick Start
 ###Initial setup
