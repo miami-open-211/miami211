@@ -6,11 +6,15 @@ A simple front-end for a [Ohana API](https://github.com/codeforamerica/ohana-api
 
 ### Who is this made by?
 
-This project was originally developed by Ernie Hsiung and [David James Knight](https://github.com/davidjamesknight). See the full [contributors list](https://github.com/Code-for-Miami/miami211/graphs/contributors).
+This project was originally developed by [Ernie Hsiung](https://github.com/ErnieAtLYD) and [David James Knight](https://github.com/davidjamesknight). See the full [contributors list](https://github.com/Code-for-Miami/miami211/graphs/contributors).
 
 ### Who is using this platform?
 
 - [Prototype](https://mia211.herokuapp.com/) for Jewish Health Services
+
+### What is the status of the URL?
+
+As of March 2017, the repo is hosted on a Heroku account managed by @ErnieAtLYD.
 
 ### Screenshots
 
