@@ -22,25 +22,22 @@ This project was originally developed by Ernie Hsiung and [David James Knight](h
 ## Under the hood
 While we used Ruby (tested up to v2.3.0) and Sinatra to stand this up, so to speak, much of the leg work is HTML, CSS and Javascript (jQuery, leaflet.js, Mapbox georeference APIs). Ohana API has a ruby gem called Ohanakapa that we used for API access; there is no local data storage being used in this prototype.
 
-##Quick Start
-###Initial setup
+## Quick Start
+### Initial setup
 
     cd [project_directory]
     bundle install 
     
-###Starting the app
+### Starting the app
 
     cd [project_directory]
     ruby server.rb
     
-###In the browser
+### In the browser
 
     localhost:4567
     
-##API
+## API
 
-###Endpoint
-[https://ohana-api.herokuapp.com/api/](https://ohana-api.herokuapp.com/api/)
-
-###JSON
-[https://ohana-api.herokuapp.com/api/locations](https://ohana-api.herokuapp.com/api/locations)
+ * [Ohana API Endpoint](https://ohana-api.herokuapp.com/api/)
+ * [Ohana API locations, in json format](https://ohana-api.herokuapp.com/api/locations)
